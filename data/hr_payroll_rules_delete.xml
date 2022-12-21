@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <delete model="hr.salary.rule" id="payroll.hr_rule_basic"/>
+    <delete model="hr.salary.rule" id="payroll.hr_rule_taxable"/>
+    <delete model="hr.salary.rule" id="payroll.hr_rule_net"/>
+    <delete model="hr.salary.rule" id="payroll.hr_salary_rule_houserentallowance1"/>
+    <delete model="hr.salary.rule" id="payroll.hr_salary_rule_convanceallowance1"/>
+    <delete model="hr.salary.rule" id="payroll.hr_salary_rule_professionaltax1"/>
+    <delete model="hr.salary.rule" id="payroll.hr_salary_rule_providentfund1"/>
+    <delete model="hr.salary.rule" id="payroll.hr_salary_rule_ca_demo"/>
+    <delete model="hr.salary.rule" id="payroll.hr_salary_rule_meal_voucher"/>
+
+    <delete model="hr.rule.input" id="payroll.hr_rule_input_sale_a"/>
+    <delete model="hr.rule.input" id="payroll.hr_rule_input_sale_b"/>
+    <delete model="hr.salary.rule" id="payroll.hr_salary_rule_sales_commission"/>
+
+    <!--
+    <record id="hr_rule_input_sale_a" model="hr.rule.input">
+        <field name="code">SALEURO</field>
+        <field name="name">Sales to Europe</field>
+        <field name="input_id" ref="hr_salary_rule_sales_commission" />
+    </record>
+    <record id="hr_rule_input_sale_b" model="hr.rule.input">
+        <field name="code">SALASIA</field>
+        <field name="name">Sales to Asia</field>
+        <field name="input_id" ref="hr_salary_rule_sales_commission" />
+    </record>
+
+
+
+    <delete model="hr.salary.rule" id="payroll.hr_salary_rule_sales_commission"/>
+
+    <record id="hr_houserent_register" model="hr.contribution.register">
+        <field name="name">House Rent Allowance Register</field>
+    </record>
+    <record id="hr_provident_fund_register" model="hr.contribution.register">
+        <field name="name">Provident Fund Register</field>
+    </record>
+    <record id="hr_professional_tax_register" model="hr.contribution.register">
+        <field name="name">Professional Tax Register</field>
+    </record>
+    <record id="hr_meal_voucher_register" model="hr.contribution.register">
+        <field name="name">Meal Voucher Register</field>
+    </record>
+
+    <delete model="hr.salary.rule" search="[(code,'=','BASIC')]"/>
+
+    <delete model="hr.salary.rule.category" search="[(code,'=','BASIC')]"/>
+    <delete model="hr.salary.rule.category" search="[(code,'=','ALW')]"/>
+    <delete model="hr.salary.rule.category" search="[(code,'=','GROSS')]"/>
+
+
+    <delete model="hr.salary.rule.category" id="payroll.BASIC"/>
+    <delete model="hr.salary.rule.category" id="payroll.GROSS"/>
+    <delete model="hr.salary.rule.category" id="payroll.ALW"/>
+    <delete model="hr.salary.rule.category" id="payroll.DED"/>
+    <delete model="hr.salary.rule.category" id="payroll.NET"/>
+    <delete model="hr.salary.rule.category" id="payroll.COMP"/>
+
+    -->
+
+</odoo>

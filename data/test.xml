@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+<!--
+    <record id="POREZ" model="hr.salary.rule.category">
+        <field name="name">Porez na platu</field>
+        <field name="code">POREZ</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+-->
+
+</odoo>

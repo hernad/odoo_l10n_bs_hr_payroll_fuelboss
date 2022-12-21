@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+<record id="D_NA_SUB" model="hr.salary.rule.category">
+    <field name="name">Doprinosi NA platu - analitika</field>
+    <field name="code">D_NA_SUB</field>
+    <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+</record>
+<record id="D_NA" model="hr.salary.rule.category">
+    <field name="name">Doprinosi NA - na teret zaposlenog</field>
+    <field name="code">D_NA</field>
+    <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+</record>
+
+<!-- ====================== Doprinosi NA============== -->
+<record id="hr_salary_rule_dopr_na" model="hr.salary.rule">
+    <field name="name">Doprinosi NA plate</field>
+    <field name="sequence" eval="260" />
+    <field name="code">D_NA</field>
+    <field name="category_id" ref="l10n_bs_hr_payroll.D_NA" />
+    <field name="condition_select">none</field>
+    <field name="amount_select">code</field>
+    <field name="amount_python_compute">
+result_rate = float(payslip.rule_parameter('D_NA_PIO')) + float(payslip.rule_parameter('D_NA_ZDR')) + float(payslip.rule_parameter('D_NA_ZAP'))
+result = categories.BR_OSN
+result = round(result, int(payslip.rule_parameter('ZAOK')))
+    </field>
+    <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+</record>
+
+<record id="hr_salary_rule_dopr_na_pio" model="hr.salary.rule">
+    <field name="name">Doprinos NA PIO</field>
+    <field name="sequence" eval="261" />
+    <field name="code">D_NA_PIO</field>
+    <field name="category_id" ref="l10n_bs_hr_payroll.D_NA_SUB" />
+    <field name="appears_on_payslip" eval="False" />
+    <field name="parent_rule_id" ref="hr_salary_rule_dopr_na" />
+    <field name="condition_select">none</field>
+    <field name="amount_select">code</field>
+    <field name="amount_python_compute">
+result_rate = float(payslip.rule_parameter('D_NA_PIO'))
+result = categories.BR_OSN
+result = round(result, int(payslip.rule_parameter('ZAOK')))
+    </field>
+    <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+</record>
+
+<record id="hr_salary_rule_dopr_na_zdr" model="hr.salary.rule">
+    <field name="name">Doprinos NA zdravstvo</field>
+    <field name="sequence" eval="262" />
+    <field name="code">D_NA_ZDR</field>
+    <field name="category_id" ref="l10n_bs_hr_payroll.D_NA_SUB" />
+    <field name="appears_on_payslip" eval="False" />
+    <field name="parent_rule_id" ref="hr_salary_rule_dopr_na" />
+    <field name="condition_select">none</field>
+    <field name="amount_select">code</field>
+    <field name="amount_python_compute">
+result_rate = float(payslip.rule_parameter('D_NA_ZDR'))
+result = categories.BR_OSN
+result = round(result, int(payslip.rule_parameter('ZAOK')))
+    </field>
+    <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+</record>
+
+<record id="hr_salary_rule_dopr_na_zap" model="hr.salary.rule">
+    <field name="name">Doprinos NA zapošljavanje</field>
+    <field name="sequence" eval="263" />
+    <field name="code">D_NA_ZAP</field>
+    <field name="category_id" ref="l10n_bs_hr_payroll.D_NA_SUB" />
+    <field name="appears_on_payslip" eval="False" />
+    <field name="parent_rule_id" ref="hr_salary_rule_dopr_na" />
+    <field name="condition_select">none</field>
+    <field name="amount_select">code</field>
+    <field name="amount_python_compute">
+result_rate = float(payslip.rule_parameter('D_NA_ZAP'))
+result = categories.BR_OSN
+result = round(result, int(payslip.rule_parameter('ZAOK')))
+    </field>
+    <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+</record>
+
+</odoo>
