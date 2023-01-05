@@ -1,6 +1,6 @@
 {
     'name': 'Payroll Fuelboss doo Zenica',
-    'version': '1.0',
+    'version': '1.1',
     'author': "bring.out Sarajevo, BiH",
     'category': 'Human Resources/Payroll',
     'sequence': 190,
@@ -14,7 +14,8 @@
         "data/hr_payroll_rules_detas.xml",
         "data/hr_payroll_rules_end.xml",
         "data/hr_payroll_rules_delete.xml",
-        #"data/test.xml"
+        "data/res.bank.csv",
+        "views/employee_code.xml",
     ],
     'installable': True,
     'application': False,
