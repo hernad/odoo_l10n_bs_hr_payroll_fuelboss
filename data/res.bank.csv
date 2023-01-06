@@ -1,108 +1,16 @@
 "id","name","bic","country/id","zip","city","street","email","phone"
-"ADDIKO","Addiko bank dd Sarajevo","BICADDIKO","base.bs",71000,"Sarajevo","Trg solidarnosti 12.","info.fbih@addiko.com","+387 33/866-666"
-"ASA","ASA Banka dd Sarajevo","BICASA","base.bs",71000,"Sarajevo","Trg međunarodnog prijateljstva 25.","info@asabanka.ba","+387 33/586-870"
-"ASA2","ASA Naša i snažna dd Sarajevo","BICASA2","base.bs",71000,"Sarajevo","Fra Anđela Zvizdovića 1.","info@asabanka.ba","+387 33/294-700"
-"BBI","Bosna Bank International dd Sarajevo","BICBBI","base.bs",71000,"Sarajevo","Trg djece Sarajeva bb","info@bbi.ba","+387 33/275-100"
-
-
-Intesa Sanpaolo Banka d.d. Bosna i Hercegovina
-Adresa	Obala Kulina bana 9a, 71 000 Sarajevo
-Telefon	497 555
-Faks	497 589
-Pozivni broj	033; +387 33
-Web	www.intesasanpaolobanka.ba
-Email	
-Predsjednik Uprave	Marco Trevisan
-
-Komercijalno-investiciona bankaKomercijalno-investiciona banka d.d. V.Kladuša
-Adresa	Tone Horvata bb, 77 230 Velika Kladuša
-Telefon	771 253
-Faks	772 416
-Pozivni broj	037; +387 37
-Web	www.kib-banka.com.ba
-Email	
-Predsjednik Uprave	Hasan Porčić
-
-NLB BankaNLB Banka d.d. Sarajevo
-Adresa	Koševo 3, 71000 Sarajevo
-Telefon	033 720 300
-Faks	035 302 802
-Pozivni broj	033; +387 33; 035; +387 35
-Web	www.nlb.ba
-Email	
-Predsjednik Uprave	Lidija Žigić
-
-Privredna banka Sarajevo d.d. Sarajevo
-Adresa	Obala Kulina bana 18, 71 000 Сарајево
-Telefon	278 520
-Faks	278 550
-Pozivni broj	033; +387 33
-Web	www.pbs.ba
-Email	
-Predsjednik Uprave	Hamid Pršeš
-
-ProCredit Bank d.d. Sarajevo
-Adresa	Franca Lehara bb, 71 000 Sarajevo
-Telefon	250 950
-Faks	250 971
-Pozivni broj	033; +387 33
-Web	www.procreditbank.ba
-Email	
-Predsjednik Uprave	Amir Salkanović
-
-Raiffeisen Bank BiHRaiffeisen Bank d.d. BiH
-Adresa	Zmaja od Bosne bb, 71 000 Sarajevo
-Telefon	755 010
-Faks	213 851
-Pozivni broj	033; +387 33
-Web	www.raiffeisenbank.ba
-Email	
-Predsjednik Uprave	James Stewart
-
-Razvojna banka FBiHRazvojna banka Federacije BiH
-Adresa	Igmanska 1, 71 000 Sarajevo
-Telefon	724 900; 724 902
-Faks	668 952
-Pozivni broj	033; +387 33
-Web	www.rbfbih.ba
-Email	
-Predsjednik Uprave	v.d. Mensud Bašić
-
-Sparkasse bankSparkasse Bank d.d. BiH
-Adresa	Zmaja od Bosne 7, Sarajevoо
-Telefon	080 020 201
-Faks	280 230
-Pozivni broj	033; +387 33
-Web	www.sparkasse.ba
-Email	
-Predsjednik Uprave	Amir Softić
-
-UniCredit BankUniCredit Bank d.d. Mostar
-Adresa	Kardinala Stepinca bb, 88 000 Mostar
-Telefon	312 112
-Faks	356 227
-Pozivni broj	036; +387 36
-Web	www.unicredit.ba
-Email	
-Predsjednik Uprave	Amina Mahmutović
-
-Union BankaUnion banka d.d. Sarajevo
-Adresa	Hamdije Kreševljakovića 19, 71 000 Sarajevo
-Telefon	561 000
-Faks	219 201
-Pozivni broj	033; +387 33
-Web	www.unionbank.ba
-Email	
-Predsjednik Uprave	Vedran Hadžiahmetović
-
-Ziraat bankZiraatBank BH d.d. Sarajevo
-Adresa	Zmaja od Bosne 47c, 71 000 Sarajevo
-Telefon	955 015
-Faks	525 712
-Pozivni broj	033; +387 33
-Web	www.ziraatbank.ba
-Email	informacije@ziraatbank.ba
-Predsjednik Uprave	Bulent Seur
-
-
-
+"ADDIKO","Addiko bank dd Sarajevo","ADDIKO","base.bs",71000,"Sarajevo","Trg solidarnosti 12","info.fbih@addiko.com","+387 33/866-666"
+"ASA","ASA Banka dd Sarajevo","ASA","base.bs",71000,"Sarajevo","Trg međunarodnog prijateljstva 25","info@asabanka.ba","+387 33/586-870"
+"ASA2","ASA Naša i snažna dd Sarajevo","ASA2","base.bs",71000,"Sarajevo","Fra Anđela Zvizdovića 1","info@asabanka.ba","+387 33/294-700"
+"BBI","Bosna Bank International dd Sarajevo","BBI","base.bs",71000,"Sarajevo","Trg djece Sarajeva bb","info@bbi.ba","+387 33/275-100"
+"INTESA", "Intesa Sanpaolo Banka dd Sarajevo", "INTESA", "base.bs",71000,"Sarajevo","Obala Kulina bana 9a","info@intesasanpaolobanka.ba","+387 33/497-555"
+"KIVK", "Komercijalno-investiciona banka dd V.Kladuša", "KIVK","base.bs",77230,"Velika Kladuša","Tone Horvata bb","info@kib-banka.com.ba","+387 37/771-253"
+"NLB", "NLB Banka dd Sarajevo", "NLB","base.bs",71000,"Sarajevo","Koševo 3","info@nlb.ba","+387 33/720-300"
+"PBSA", "Privredna banka Sarajevo dd Sarajevo", "PBSA","base.bs",71000,"Sarajevo","Obala Kulina bana 18","info@pbs.ba","+387 33/278-520"
+"PROCRED", "ProCredit Bank dd Sarajevo", "PROCRED","base.bs",71000,"Sarajevo","Franca Lehara bb","info@procreditbank.ba","+387 33/250-950"
+"RAIFF", "Raiffeisen Bank dd BiH", "RAIFF","base.bs",71000,"Sarajevo","Zmaja od Bosne bb","info@raiffeisenbank.ba","+387 33/755-010"
+"RAZFBIH", "Razvojna banka Federacije BiH", "RAZFBIH","base.bs",71000,"Sarajevo","Igmanska 1","info@rbfbih.ba","+387 33/724-900"
+"SPARK","Sparkasse Bank dd BiH", "SPARK","base.bs",71000,"Sarajevo","Zmaja od Bosne 7","info@sparkasse.ba","+387 80/020-201"
+"UNIKRED","UniCredit Bank dd Mostar", "UNIKRED","base.bs",88000,"Mostar","Kardinala Stepinca bb","info@unicredit.ba","+387 36/312-112"
+"UNION","Union banka dd Sarajevo", "UNION","base.bs",71000,"Sarajevo","Hamdije Kreševljakovića 19","info@unionbank.ba","+387 33/561-000"
+"ZIRAAT","ZiraatBank BH dd Sarajevo", "ZIRAAT","base.bs",71000,"Sarajevo","Zmaja od Bosne 47c","informacije@ziraatbank.ba","+387 33/955-015"
