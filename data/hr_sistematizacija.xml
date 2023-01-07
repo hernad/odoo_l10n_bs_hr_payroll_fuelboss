@@ -113,7 +113,7 @@
 
     <record id="job_ruk_gradj_mas_voz" model="hr.job">
         <field name="name">Rukovalac građevinskih mašina - vozač</field>
-        <field name="department_id" ref="dep_pravni_opsti"/>
+        <field name="department_id" ref="dep_montaza"/>
          <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
