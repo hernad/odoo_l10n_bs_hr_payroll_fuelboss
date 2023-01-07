@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="dep_fin_rac" model="hr.department">
+        <field name="name">Finansijsko računovodstveni poslovi</field>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+    <record id="dep_komerc" model="hr.department">
+        <field name="name">Komercijalni poslovi</field>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+    <record id="dep_zastita" model="hr.department">
+        <field name="name">Zaštita zdravlja i sigurnosti</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+    <record id="dep_pravni_opsti" model="hr.department">
+        <field name="name">Pravni, kadrovski i opšti poslovi</field>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+    <record id="dep_montaza" model="hr.department">
+        <field name="name">Montaža</field>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+    
+    <record id="dep_tehnika" model="hr.department">
+        <field name="name">Tehnički poslovi</field>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="dep_uprava" model="hr.department">
+        <field name="name">Uprava</field>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_sef_proj" model="hr.job">
+        <field name="name">Šef projekta</field>
+        <field name="department_id" ref="dep_uprava"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_rukovod_zas_zdr_sig" model="hr.job">
+        <field name="name">Rukovodilac poslova zaštite zdravlja i sigurnosti na radu</field>
+        <field name="department_id" ref="dep_uprava"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_rukovod_teh" model="hr.job">
+        <field name="name">Tehnički rukovodilac</field>
+        <field name="department_id" ref="dep_uprava"/>
+    </record>
+
+    <record id="job_teh_sekr" model="hr.job">
+        <field name="name">Tehnički sekretar</field>
+        <field name="department_id" ref="dep_uprava"/>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_dir_zamj" model="hr.job">
+        <field name="name">Zamjenik direktora</field>
+        <field name="department_id" ref="dep_uprava"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_dir" model="hr.job">
+        <field name="name">Direktor</field>
+        <field name="department_id" ref="dep_uprava"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_arh" model="hr.job">
+        <field name="name">Arhivar</field>
+        <field name="department_id" ref="dep_pravni_opsti"/>
+        <!--
+        <field name="contract_type_id" ref="hr.contract_type_permanent"/>
+        -->
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_inz_kalk_rn" model="hr.job">
+        <field name="name">Inžinjer za izradu kalkulacija i obračun radnih naloga</field>
+        <field name="department_id" ref="dep_tehnika"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_inz_proj_or_rb" model="hr.job">
+        <field name="name">Inžinjer za projektovanje, OR, RB</field>
+        <field name="department_id" ref="dep_tehnika"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_inz_zas_zdr_sig" model="hr.job">
+        <field name="name">Inžinjer za zaštitu zdravlja i sigurnosti na radu</field>
+        <field name="department_id" ref="dep_tehnika"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_ref_zas_zdr_sig" model="hr.job">
+        <field name="name">Referent za zaštitu zdravlja i sigurnosti na radu</field>
+        <field name="department_id" ref="dep_tehnika"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_ref_sam_ljud" model="hr.job">
+        <field name="name">Samostalni referent za ljudske resurse</field>
+        <field name="department_id" ref="dep_pravni_opsti"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_ref_sam_ops_pravn" model="hr.job">
+        <field name="name">Samostalni referent za opšte, pravne i kadrovske poslove</field>
+        <field name="department_id" ref="dep_pravni_opsti"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_ruk_gradj_mas_voz" model="hr.job">
+        <field name="name">Rukovalac građevinskih mašina - vozač</field>
+        <field name="department_id" ref="dep_pravni_opsti"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_brav" model="hr.job">
+        <field name="name">Bravar</field>
+        <field name="department_id" ref="dep_montaza"/>
+        <!--
+        <field name="contract_type_id" ref="hr.contract_type_permanent"/>
+        -->
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_brav_cjev" model="hr.job">
+        <field name="name">Bravar cjevar</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_brav_cjev_iii" model="hr.job">
+        <field name="name">Bravar cjevar III klase</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_brav_cjev_ii" model="hr.job">
+        <field name="name">Bravar cjevar II klase</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_brav_pom" model="hr.job">
+        <field name="name">Bravar pomoćni</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_mont_brav_cjev_i" model="hr.job">
+        <field name="name">Monter bravar cjevar I klase</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_mont_brav_cjev_ii" model="hr.job">
+        <field name="name">Monter bravar cjevar II klase</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_mont_brav_cjev_iii" model="hr.job">
+        <field name="name">Monter bravar cjevar III klase</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_mont_brav_iii" model="hr.job">
+        <field name="name">Monter bravar III klase</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_mont_cent_grij" model="hr.job">
+        <field name="name">Monter centralnog grijanja</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_poslovodja" model="hr.job">
+        <field name="name">Poslovođa</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_zavar_kontr" model="hr.job">
+        <field name="name">Kontrolor zavarivač</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_zavar" model="hr.job">
+        <field name="name">Zavarivač</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_zavar_i" model="hr.job">
+        <field name="name">Zavarivač I klase</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_zavar_ii" model="hr.job">
+        <field name="name">Zavarivač II klase</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_zavar_iii" model="hr.job">
+        <field name="name">Zavarivač III klase</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_cjev" model="hr.job">
+        <field name="name">Cjevar</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="job_zavar_teh_kont" model="hr.job">
+        <field name="name">Tehničar kontrolnog zavarivanja</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+   <record id="job_cist" model="hr.job">
+        <field name="name">Čistačica</field>
+        <field name="department_id" ref="dep_pravni_opsti"/>
+        <!--
+        <field name="contract_type_id" ref="hr.contract_type_permanent"/>
+        -->
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+   <record id="job_elteh_elek" model="hr.job">
+        <field name="name">Elektrotehničar elektronike</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+   <record id="job_fin_ref" model="hr.job">
+        <field name="name">Finansijski referent</field>
+        <field name="department_id" ref="dep_fin_rac"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+   <record id="job_fin_ref_sam" model="hr.job">
+        <field name="name">Samostalni finansijski referent</field>
+        <field name="department_id" ref="dep_fin_rac"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+   <record id="job_knjig_sam" model="hr.job">
+        <field name="name">Samostalni knjigovođa</field>
+        <field name="department_id" ref="dep_fin_rac"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+   </record>
+
+   <record id="job_komerc" model="hr.job">
+        <field name="name">Komercijalista</field>
+        <field name="department_id" ref="dep_komerc"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+   </record>
+
+   <record id="job_komerc_sl" model="hr.job">
+        <field name="name">Komercijalni službenik</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="department_id" ref="dep_komerc"/>
+   </record>
+
+<!--
+   <record id="hr_contract_test01" model="hr.contract">
+        <field name="name">Test radnik FBiH01 METAL Contract 2020</field>
+        <field name="state">open</field>
+        <field name="department_id" ref="dep_proizvodnja"/>
+        <field name="job_id" ref="job_varilac"/>
+        <field name="date_start" eval="datetime(2020, 1, 1).date()" />
+        
+        <field name="date_end" eval="datetime(2023, 1, 1).date()" />
+      
+        <field name="struct_id" ref="structure_fbih_met" />
+        <field name="structure_type_id" ref="hr_contract.structure_type_employee" />
+        <field name="employee_id" ref="hr_employee_bs_fbih01" />
+        <field name="notes">Contract for Test Radnik FBiH01</field>
+        <field eval="1000.00" name="wage" />
+        <field eval="1.1" name="br_bod" />
+        <field eval="0.60" name="koef_mr" />
+        <field eval="1.5" name="koef_lo" />
+    </record>
+-->
+
+</odoo>
