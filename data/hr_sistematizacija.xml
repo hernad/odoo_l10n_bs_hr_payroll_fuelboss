@@ -76,19 +76,19 @@
     </record>
 
     <record id="job_inz_kalk_rn" model="hr.job">
-        <field name="name">Inžinjer za izradu kalkulacija i obračun radnih naloga</field>
+        <field name="name">Inženjer za izradu kalkulacija i obračun radnih naloga</field>
         <field name="department_id" ref="dep_tehnika"/>
          <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="job_inz_proj_or_rb" model="hr.job">
-        <field name="name">Inžinjer za projektovanje, OR, RB</field>
+        <field name="name">Inženjer za projektovanje, OR, RB</field>
         <field name="department_id" ref="dep_tehnika"/>
          <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="job_inz_zas_zdr_sig" model="hr.job">
-        <field name="name">Inžinjer za zaštitu zdravlja i sigurnosti na radu</field>
+        <field name="name">Inženjer za zaštitu zdravlja i sigurnosti na radu</field>
         <field name="department_id" ref="dep_tehnika"/>
          <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
