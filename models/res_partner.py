@@ -5,5 +5,5 @@ class PartnerFB(models.Model):
     _description = "Partner fuelboss"
 
     _sql_constraints = [
-        ('name_unique', 'unique(type,name)', 'Ime u adresaru mora biti jedinstveno.')
+        ('name_unique', 'unique(company_id,type,name)', 'Ime u adresaru mora biti jedinstveno.')
     ]

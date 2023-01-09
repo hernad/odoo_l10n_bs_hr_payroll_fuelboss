@@ -46,6 +46,7 @@
     <record id="job_rukovod_teh" model="hr.job">
         <field name="name">Tehnički rukovodilac</field>
         <field name="department_id" ref="dep_uprava"/>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="job_teh_sekr" model="hr.job">
@@ -150,6 +151,12 @@
          <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
+    <record id="job_brav_iii" model="hr.job">
+        <field name="name">Bravar III klase</field>
+        <field name="department_id" ref="dep_montaza"/>
+         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
     <record id="job_mont_brav_cjev_i" model="hr.job">
         <field name="name">Monter bravar cjevar I klase</field>
         <field name="department_id" ref="dep_montaza"/>
@@ -223,7 +230,7 @@
     </record>
 
     <record id="job_zavar_teh_kont" model="hr.job">
-        <field name="name">Tehničar kontrolnog zavarivanja</field>
+        <field name="name">Tehničar kontrolor zavarivanja</field>
         <field name="department_id" ref="dep_montaza"/>
          <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
