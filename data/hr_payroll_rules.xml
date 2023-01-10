@@ -112,7 +112,7 @@
     </record>
 
 
-    <!-- ============ cntribution registers =========== -->
+    <!-- ============ contribution registers =========== -->
 
     <record id="contrib_register_isp" model="hr.contribution.register">
         <field name="name">Isplata</field>
@@ -156,6 +156,12 @@
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
+    <record id="contrib_register_zdr_k4" model="hr.contribution.register">
+        <field name="name">Doprinos zdravstvo SBK</field>
+        <field name="partner_id" eval="False" />
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
     <record id="contrib_register_zap_f" model="hr.contribution.register">
         <field name="name">Doprinos zapošljavanje FBiH</field>
         <field name="partner_id" eval="False" />
@@ -176,6 +182,12 @@
 
     <record id="contrib_register_zap_k3" model="hr.contribution.register">
         <field name="name">Doprinos zapošljavanje Tuzlanski kanton</field>
+        <field name="partner_id" eval="False" />
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="contrib_register_zap_k4" model="hr.contribution.register">
+        <field name="name">Doprinos zapošljavanje SBK</field>
         <field name="partner_id" eval="False" />
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -593,7 +605,6 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
-
 
 
     <record id="hr_salary_rule_to" model="hr.salary.rule">

@@ -173,9 +173,33 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
     <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
 </record>
 
+<record id="hr_salary_rule_dopr_zdr_k4" model="hr.salary.rule">
+    <field name="name">Doprinosi zdravstvo SBK 89.8%</field>
+    <field name="sequence" eval="275" />
+    <field name="code">D_ZDR_K4</field>
+    <field name="appears_on_payslip" eval="False" />
+    <field name="category_id" ref="l10n_bs_hr_payroll.D_ZDR_K" />
+    <field name="parent_rule_id" ref="hr_salary_rule_dopr_zdr" />
+    <field name="register_id" ref="contrib_register_zdr_k4" />
+    <field name="condition_select">none</field>
+    <field name="amount_select">code</field>
+    <field name="amount_python_compute">
+result_qty = 0
+radni_sati = worked_days.WORK100 and worked_days.WORK100.number_of_hours
+mjesec_sati = worked_days.FWORK100 and worked_days.FWORK100.number_of_hours
+koef_sati = radni_sati / mjesec_sati
+if employee.address_home_id and employee.address_home_id.state_id.code == 'KSB':
+    result_qty = 1
+result_rate = float(payslip.rule_parameter('D_IZ_ZDR')) + float(payslip.rule_parameter('D_NA_ZDR'))
+result = categories.BR_OSN * 89.8/100.00 * koef_sati
+result = round(result, int(payslip.rule_parameter('ZAOK')))
+    </field>
+    <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+</record>
+
 <record id="hr_salary_rule_dopr_zap" model="hr.salary.rule">
     <field name="name">Doprinosi zapošljavanje (iz+na)</field>
-    <field name="sequence" eval="275" />
+    <field name="sequence" eval="276" />
     <field name="code">D_ZAP</field>
     <field name="appears_on_payslip" eval="False" />
     <field name="category_id" ref="l10n_bs_hr_payroll.D_ZAP" />
@@ -194,7 +218,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
 
 <record id="hr_salary_rule_dopr_zap_f" model="hr.salary.rule">
     <field name="name">Doprinosi zapošljavanje 30% FBiH</field>
-    <field name="sequence" eval="276" />
+    <field name="sequence" eval="277" />
     <field name="code">D_ZAP_F</field>
     <field name="appears_on_payslip" eval="False" />
     <field name="category_id" ref="l10n_bs_hr_payroll.D_ZAP_F" />
@@ -215,7 +239,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
 
 <record id="hr_salary_rule_dopr_zap_k1" model="hr.salary.rule">
     <field name="name">Doprinosi zapošljavanje 70% KZE-DO</field>
-    <field name="sequence" eval="277" />
+    <field name="sequence" eval="278" />
     <field name="code">D_ZAP_K1</field>
     <field name="appears_on_payslip" eval="False" />
     <field name="category_id" ref="l10n_bs_hr_payroll.D_ZAP_K" />
@@ -239,7 +263,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
 
 <record id="hr_salary_rule_dopr_zap_k2" model="hr.salary.rule">
     <field name="name">Doprinosi zapošljavanje 70% KSA</field>
-    <field name="sequence" eval="278" />
+    <field name="sequence" eval="279" />
     <field name="code">D_ZAP_K2</field>
     <field name="appears_on_payslip" eval="False" />
     <field name="category_id" ref="l10n_bs_hr_payroll.D_ZAP_K" />
@@ -263,7 +287,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
 
 <record id="hr_salary_rule_dopr_zap_k3" model="hr.salary.rule">
     <field name="name">Doprinosi zapošljavanje 70% Tuzlanski kanton</field>
-    <field name="sequence" eval="278" />
+    <field name="sequence" eval="280" />
     <field name="code">D_ZAP_K3</field>
     <field name="appears_on_payslip" eval="False" />
     <field name="category_id" ref="l10n_bs_hr_payroll.D_ZAP_K" />
@@ -285,5 +309,28 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
     <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
 </record>
 
+<record id="hr_salary_rule_dopr_zap_k4" model="hr.salary.rule">
+    <field name="name">Doprinosi zapošljavanje 70% SBK</field>
+    <field name="sequence" eval="281" />
+    <field name="code">D_ZAP_K4</field>
+    <field name="appears_on_payslip" eval="False" />
+    <field name="category_id" ref="l10n_bs_hr_payroll.D_ZAP_K" />
+    <field name="parent_rule_id" ref="hr_salary_rule_dopr_zap" />
+    <field name="register_id" ref="contrib_register_zap_k4" />
+    <field name="condition_select">none</field>
+    <field name="amount_select">code</field>
+    <field name="amount_python_compute">
+result_qty = 0
+radni_sati = worked_days.WORK100 and worked_days.WORK100.number_of_hours
+mjesec_sati = worked_days.FWORK100 and worked_days.FWORK100.number_of_hours
+koef_sati = radni_sati / mjesec_sati
+if employee.address_home_id and employee.address_home_id.state_id.code == 'KSB':
+    result_qty = 1
+result_rate = float(payslip.rule_parameter('D_IZ_ZAP')) + float(payslip.rule_parameter('D_NA_ZAP'))
+result = categories.BR_OSN * 70/100.00 * koef_sati
+result = round(result, int(payslip.rule_parameter('ZAOK')))
+    </field>
+    <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+</record>
 
 </odoo>
