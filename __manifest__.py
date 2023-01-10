@@ -17,6 +17,7 @@
         #"data/hr_payroll_rules_delete.xml",
         "data/res.bank.csv",
         "views/employee_code.xml",
+        "views/employee_tree_view.xml",
     ],
     'installable': True,
     'application': False,

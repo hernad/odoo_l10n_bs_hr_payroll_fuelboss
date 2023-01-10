@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_view_employee_tree_attrib_fb" model="ir.ui.view">
+            <field name="name">hr.employee.inherit.attrib.fb</field>
+            <field name="model">hr.employee</field>
+            <field name="mode">primary</field>
+            <field name="inherit_id" ref="hr.view_employee_tree"/>
+            <field name="arch" type="xml">
+                <field name="activity_ids" position="attributes"><attribute name="optional">hide</attribute></field>
+                <field name="company_id" position="attributes"><attribute name="optional">hide</attribute></field>
+                <field name="address_id" position="attributes"><attribute name="optional">hide</attribute></field>
+                <field name="activity_date_deadline" position="attributes"><attribute name="optional">hide</attribute></field>
+                <field name="work_phone" position="attributes"><attribute name="optional">hide</attribute></field>
+                <field name="work_email" position="attributes"><attribute name="optional">hide</attribute></field>
+                <field name="parent_id" position="attributes"><attribute name="optional">hide</attribute></field>
+            </field>
+   </record>
+
+   
+    <record id="hr_view_employee_tree_fb" model="ir.ui.view">
+        <field name="name">hr.employee.inherit.fb</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='country_id']" position="after">
+                <field name="code" />
+                <field name="private_city" optional="hide" />
+                <field name="private_state_id" optional="hide" />
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="hr_view_employee_filter_fb" model="ir.ui.view">
+        <field name="name">hr.employee.search.inherit.fb</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="private_city" optional="hide" />
+                <field name="private_state_id" optional="hide" />
+                <field name="code" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
