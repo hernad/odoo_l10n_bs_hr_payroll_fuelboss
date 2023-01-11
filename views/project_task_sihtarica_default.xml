@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+      <record id="hr_project_task_timesheet_tree_fb_default" model="ir.ui.view">
+          <field name="name">project.task.timesheet.tree.bs.default</field>
+          <field name="model">project.task</field>
+          <field name="inherit_id" ref="l10n_bs_hr_timesheet.hr_project_task_timesheet_tree" />
+          <field name="arch" type="xml">
+              <field name="timesheet_ids" position="before">
+                  <field name="default_work_type_id" invisible="1" />
+                  <field name="default_date" invisible="1" />
+                  <field name="default_unit_amount" invisible="1" />
+              </field>
+          </field>
+      </record>
+
+      <record id="hr_project_task_timesheet_tree_fb" model="ir.ui.view">
+          <field name="name">project.task.timesheet.tree.fb</field>
+          <field name="model">project.task</field>
+          <field name="inherit_id" ref="l10n_bs_hr_timesheet.hr_project_task_timesheet_tree" />
+          <field name="arch" type="xml">
+                <field name="timesheet_ids" position="attributes">
+                    <attribute name="context">
+                        {'default_work_type_id': default_work_type_id, 'default_date': default_date, 'default_unit_amount': default_unit_amount}
+                    </attribute>
+                </field>
+          </field>
+      </record>
+</odoo>

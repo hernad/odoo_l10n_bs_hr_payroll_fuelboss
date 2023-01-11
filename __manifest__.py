@@ -5,7 +5,7 @@
     'category': 'Human Resources/Payroll',
     'sequence': 190,
     'summary': 'Bosnian Payroll data (FBiH) company FuelBoss doo Zenica',
-    'depends': ["hr", "hr_contract", "payroll", "base_address_extended", "l10n_bs"],
+    'depends': ["hr", "hr_contract", "payroll", "base_address_extended", "l10n_bs", "l10n_bs_hr_timesheet"],
     'data': [
         "data/hr_payroll_rules.xml",
         "data/hr_payroll_rules_dopr_iz.xml",
@@ -18,6 +18,7 @@
         "data/res.bank.csv",
         "views/employee_code.xml",
         "views/employee_tree_view.xml",
+        "views/project_task_sihtarica_default.xml",
     ],
     'installable': True,
     'application': False,
