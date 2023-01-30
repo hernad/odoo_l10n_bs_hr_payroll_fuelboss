@@ -11,7 +11,10 @@
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-radni_sati = worked_days.TSH_10_SF.number_of_hours + worked_days.TSH_11_S.number_of_hours
+# 10_SF - standard with food, 11_S - standard bez food
+days_tsh_10_sf = worked_days.TSH_10_SF and worked_days.TSH_10_SF.number_of_hours
+days_tsh_11_s = worked_days.TSH_11_S and worked_days.TSH_11_S.number_of_hours
+radni_sati = days_tsh_10_sf + days_tsh_11_s
 result_qty = radni_sati
 result = contract.br_bod * float(payslip.rule_parameter('VRBOD'))
         </field>
@@ -75,7 +78,10 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-radni_sati = worked_days.TSH_20_NF.number_of_hours + worked_days.TSH_21_N.number_of_hours
+# 20_NF - nocni with food, 21_N - nocni bez food
+days_tsh_20_nf = worked_days.TSH_20_NF and worked_days.TSH_20_NF.number_of_hours
+days_tsh_21_n = worked_days.TSH_21_N and worked_days.TSH_21_N.number_of_hours
+radni_sati = days_tsh_20_nf + days_tsh_21_n
 result_qty = radni_sati
 result = contract.br_bod * float(payslip.rule_parameter('VRBOD')) * 1.5
         </field>
@@ -142,8 +148,10 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-result_qty =  worked_days.TSH_30_WF and abs(worked_days.TSH_30_WF.number_of_hours)
-result_qty +=  worked_days.TSH_31_WF and abs(worked_days.TSH_31_WF.number_of_hours)
+# 31_WF - work on holiday with food, 31_W - work on holiday bez food
+days_tsh_30_wf = worked_days.TSH_30_WF and worked_days.TSH_30_WF.number_of_hours
+days_tsh_31_w = worked_days.TSH_31_W and worked_days.TSH_31_W.number_of_hours
+result_qty =  days_tsh_30_wf + days_tsh_31_w
 # kao redovan rad
 result = contract.br_bod * float(payslip.rule_parameter('VRBOD'))
 result = round(result, int(payslip.rule_parameter('ZAOK')))
@@ -178,8 +186,13 @@ result = min_met
 odsustva = worked_days.BOLOVANJE and abs(worked_days.BOLOVANJE.number_of_hours)
 odsustva += worked_days.ODMOR and abs(worked_days.ODMOR.number_of_hours)
 odsustva += worked_days.RODITELJSKO_ODSUSTVO and abs(worked_days.RODITELJSKO_ODSUSTVO.number_of_hours)
-radni_sati = worked_days.TSH_10_SF.number_of_hours + worked_days.TSH_11_S.number_of_hours
-radni_sati += worked_days.TSH_20_NF.number_of_hours + worked_days.TSH_21_N.number_of_hours
+days_tsh_10_sf = worked_days.TSH_10_SF and worked_days.TSH_10_SF.number_of_hours
+days_tsh_11_s = worked_days.TSH_11_S and worked_days.TSH_11_S.number_of_hours
+days_tsh_20_nf = worked_days.TSH_20_NF and worked_days.TSH_20_NF.number_of_hours
+days_tsh_21_n = worked_days.TSH_21_N and worked_days.TSH_21_N.number_of_hours
+days_tsh_30_wf = worked_days.TSH_30_WF and worked_days.TSH_30_WF.number_of_hours
+days_tsh_31_w = worked_days.TSH_31_W and worked_days.TSH_31_W.number_of_hours
+radni_sati = days_tsh_10_sf + days_tsh_11_s + days_tsh_20_nf + days_tsh_21_n + days_tsh_30_wf + days_tsh_31_w
 result_qty = radni_sati - odsustva
 neto = result_qty * (1 + contract.koef_mr / 100.00) * contract.br_bod * float(payslip.rule_parameter('VRBOD'))
 min = result_qty * float(payslip.rule_parameter('MNS_FBIH'))
@@ -205,8 +218,13 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
 odsustva = worked_days.BOLOVANJE and abs(worked_days.BOLOVANJE.number_of_hours)
 odsustva += worked_days.ODMOR and abs(worked_days.ODMOR.number_of_hours)
 odsustva += worked_days.RODITELJSKO_ODSUSTVO and abs(worked_days.RODITELJSKO_ODSUSTVO.number_of_hours)
-radni_sati = worked_days.TSH_10_SF.number_of_hours + worked_days.TSH_11_S.number_of_hours
-radni_sati += worked_days.TSH_20_NF.number_of_hours + worked_days.TSH_21_N.number_of_hours
+days_tsh_10_sf = worked_days.TSH_10_SF and worked_days.TSH_10_SF.number_of_hours
+days_tsh_11_s = worked_days.TSH_11_S and worked_days.TSH_11_S.number_of_hours
+days_tsh_20_nf = worked_days.TSH_20_NF and worked_days.TSH_20_NF.number_of_hours
+days_tsh_21_n = worked_days.TSH_21_N and worked_days.TSH_21_N.number_of_hours
+days_tsh_30_wf = worked_days.TSH_30_WF and worked_days.TSH_30_WF.number_of_hours
+days_tsh_31_w = worked_days.TSH_31_W and worked_days.TSH_31_W.number_of_hours
+radni_sati = days_tsh_10_sf + days_tsh_11_s + days_tsh_20_nf + days_tsh_21_n + days_tsh_30_wf + days_tsh_31_w
 result_qty = radni_sati - odsustva
 neto = result_qty * (1 + contract.koef_mr / 100.00) * contract.br_bod * float(payslip.rule_parameter('VRBOD'))
 min_met = result_qty * float(payslip.rule_parameter('MNS_MET_FBIH'))
