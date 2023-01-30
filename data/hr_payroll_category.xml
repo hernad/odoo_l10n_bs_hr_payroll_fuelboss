@@ -67,4 +67,28 @@
         <field name="code">UKUPNO</field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
+
+    <record id="D_IZ_SUB" model="hr.salary.rule.category">
+      <field name="name">Doprinosi IZ plate - analitika</field>
+      <field name="code">D_IZ_SUB</field>
+      <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="D_IZ" model="hr.salary.rule.category">
+        <field name="name">Doprinosi IZ - na teret poslodavca</field>
+        <field name="code">D_IZ</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="D_NA_SUB" model="hr.salary.rule.category">
+        <field name="name">Doprinosi NA platu - analitika</field>
+        <field name="code">D_NA_SUB</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="D_NA" model="hr.salary.rule.category">
+        <field name="name">Doprinosi NA - na teret zaposlenog</field>
+        <field name="code">D_NA</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
 </odoo>

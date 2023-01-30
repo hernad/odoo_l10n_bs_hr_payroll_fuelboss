@@ -23,7 +23,7 @@
         <field name="sequence" eval="400" />
         <field name="code">D_PIO_DNJ</field>
         <field name="appears_on_payslip" eval="True" />
-        <field name="category_id" ref="l10n_bs_hr_payroll.D_PIO" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.D_PIO" />
         <field name="register_id" ref="contrib_register_pio" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
@@ -44,7 +44,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="sequence" eval="401" />
         <field name="code">D_ZDR_DNJ</field>
         <field name="appears_on_payslip" eval="True" />
-        <field name="category_id" ref="l10n_bs_hr_payroll.D_ZDR" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.D_ZDR" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -63,7 +63,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="sequence" eval="402" />
         <field name="code">D_ZDR_F_DNJ</field>
         <field name="appears_on_payslip" eval="False" />
-        <field name="category_id" ref="l10n_bs_hr_payroll.D_ZDR_F" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.D_ZDR_F" />
         <field name="parent_rule_id" ref="hr_salary_rule_dopr_zdr_dnj" />
         <field name="register_id" ref="contrib_register_zdr_f" />
         <field name="condition_select">none</field>
@@ -84,7 +84,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="sequence" eval="403" />
         <field name="code">D_ZDR_K1_DNJ</field>
         <field name="appears_on_payslip" eval="False" />
-        <field name="category_id" ref="l10n_bs_hr_payroll.D_ZDR_K" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.D_ZDR_K" />
         <field name="parent_rule_id" ref="hr_salary_rule_dopr_zdr_dnj" />
         <field name="register_id" ref="contrib_register_zdr_k1" />
         <field name="condition_select">none</field>
@@ -108,7 +108,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="sequence" eval="404" />
         <field name="code">D_ZDR_K2_DNJ</field>
         <field name="appears_on_payslip" eval="False" />
-        <field name="category_id" ref="l10n_bs_hr_payroll.D_ZDR_K" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.D_ZDR_K" />
         <field name="parent_rule_id" ref="hr_salary_rule_dopr_zdr_dnj" />
         <field name="register_id" ref="contrib_register_zdr_k2" />
         <field name="condition_select">none</field>
@@ -132,7 +132,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="sequence" eval="404" />
         <field name="code">D_ZDR_K3_DNJ</field>
         <field name="appears_on_payslip" eval="False" />
-        <field name="category_id" ref="l10n_bs_hr_payroll.D_ZDR_K" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.D_ZDR_K" />
         <field name="parent_rule_id" ref="hr_salary_rule_dopr_zdr_dnj" />
         <field name="register_id" ref="contrib_register_zdr_k3" />
         <field name="condition_select">none</field>
@@ -156,7 +156,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="sequence" eval="405" />
         <field name="code">D_ZDR_K4_DNJ</field>
         <field name="appears_on_payslip" eval="False" />
-        <field name="category_id" ref="l10n_bs_hr_payroll.D_ZDR_K" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.D_ZDR_K" />
         <field name="parent_rule_id" ref="hr_salary_rule_dopr_zdr_dnj" />
         <field name="register_id" ref="contrib_register_zdr_k4" />
         <field name="condition_select">none</field>
@@ -181,7 +181,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="sequence" eval="406" />
         <field name="code">D_ZAP_DNJ</field>
         <field name="appears_on_payslip" eval="True" />
-        <field name="category_id" ref="l10n_bs_hr_payroll.D_ZAP" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.D_ZAP" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -200,7 +200,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="sequence" eval="407" />
         <field name="code">D_ZAP_F_DNJ</field>
         <field name="appears_on_payslip" eval="False" />
-        <field name="category_id" ref="l10n_bs_hr_payroll.D_ZAP_F" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.D_ZAP_F" />
         <field name="parent_rule_id" ref="hr_salary_rule_dopr_zap_dnj" />
         <field name="register_id" ref="contrib_register_zap_f" />
         <field name="condition_select">none</field>
@@ -221,7 +221,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="sequence" eval="408" />
         <field name="code">D_ZAP_K1_DNJ</field>
         <field name="appears_on_payslip" eval="False" />
-        <field name="category_id" ref="l10n_bs_hr_payroll.D_ZAP_K" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.D_ZAP_K" />
         <field name="parent_rule_id" ref="hr_salary_rule_dopr_zap_dnj" />
         <field name="register_id" ref="contrib_register_zap_k1" />
         <field name="condition_select">none</field>
@@ -245,7 +245,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="sequence" eval="409" />
         <field name="code">D_ZAP_K2_DNJ</field>
         <field name="appears_on_payslip" eval="False" />
-        <field name="category_id" ref="l10n_bs_hr_payroll.D_ZAP_K" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.D_ZAP_K" />
         <field name="parent_rule_id" ref="hr_salary_rule_dopr_zap_dnj" />
         <field name="register_id" ref="contrib_register_zap_k2" />
         <field name="condition_select">none</field>
@@ -269,7 +269,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="sequence" eval="409" />
         <field name="code">D_ZAP_K3_DNJ</field>
         <field name="appears_on_payslip" eval="False" />
-        <field name="category_id" ref="l10n_bs_hr_payroll.D_ZAP_K" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.D_ZAP_K" />
         <field name="parent_rule_id" ref="hr_salary_rule_dopr_zap_dnj" />
         <field name="register_id" ref="contrib_register_zap_k3" />
         <field name="condition_select">none</field>
@@ -293,7 +293,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="sequence" eval="410" />
         <field name="code">D_ZAP_K4_DNJ</field>
         <field name="appears_on_payslip" eval="False" />
-        <field name="category_id" ref="l10n_bs_hr_payroll.D_ZAP_K" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.D_ZAP_K" />
         <field name="parent_rule_id" ref="hr_salary_rule_dopr_zap_dnj" />
         <field name="register_id" ref="contrib_register_zap_k4" />
         <field name="condition_select">none</field>

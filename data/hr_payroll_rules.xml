@@ -2,12 +2,11 @@
 <odoo>
 
     <!-- =================== PRAVILA ======================= -->
-
     <record id="hr_salary_rule_rr" model="hr.salary.rule">
         <field name="name">Redovan rad</field>
-        <field name="sequence" eval="5" />
+        <field name="sequence" eval="1" />
         <field name="code">REDRAD</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NETO_SUB" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -25,7 +24,7 @@ result = contract.br_bod * float(payslip.rule_parameter('VRBOD'))
         <field name="name">Državni praznik</field>
         <field name="sequence" eval="7" />
         <field name="code">DPRAZ</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NETO_SUB" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -42,7 +41,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="name">Godišnji odmor</field>
         <field name="sequence" eval="8" />
         <field name="code">GODIS</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NETO_SUB" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -58,7 +57,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="name">Bolovanje do 42d (90%)</field>
         <field name="sequence" eval="9" />
         <field name="code">BOLOV</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NETO_SUB" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -74,7 +73,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="name">Noćni rad</field>
         <field name="sequence" eval="11" />
         <field name="code">NOCNI</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NETO_SUB" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -92,7 +91,7 @@ result = contract.br_bod * float(payslip.rule_parameter('VRBOD')) * 1.5
         <field name="name">Preraspodjele</field>
         <field name="sequence" eval="12" />
         <field name="code">PRERASP</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NETO_SUB" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -106,7 +105,7 @@ result = contract.br_bod * float(payslip.rule_parameter('VRBOD'))
         <field name="name">Minuli rad</field>
         <field name="sequence" eval="12" />
         <field name="code">MINRAD</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NETO_SUB" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -127,7 +126,7 @@ result += round(result_rules.NOCNI.amount * result_rules.NOCNI.quantity, zaok)
         <field name="name">Roditeljsko odsustvo (0%)</field>
         <field name="sequence" eval="15" />
         <field name="code">ROD_ODS</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NETO_SUB" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -144,7 +143,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="name">Rad na državni praznik (+100%)</field>
         <field name="sequence" eval="17" />
         <field name="code">R_DPRAZ</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NETO_SUB" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -163,13 +162,12 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="name">Čekanje (granski ugovor metalci)</field>
         <field name="sequence" eval="16" />
         <field name="code">CEKANJE</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NETO_SUB" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
 result_qty =  worked_days.REST and abs(worked_days.REST.number_of_hours)
-min_met = result_qty * float(payslip.rule_parameter('MNS_MET_FBIH'))
-#min = result_qty * float(payslip.rule_parameter('MNS_FBIH'))
+min_met = float(payslip.rule_parameter('MNS_MET_FBIH'))
 result = min_met
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
@@ -179,7 +177,7 @@ result = min_met
         <field name="name">Korekcija - minimum po opštem kolektivnom ugovoru</field>
         <field name="sequence" eval="17" />
         <field name="code">KOREK</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NETO_SUB" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -211,7 +209,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="name">Korekcija - minimum po kolektivnom ugovoru METAL</field>
         <field name="sequence" eval="18" />
         <field name="code">KOREK_MET</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NETO_SUB" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -243,7 +241,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="name">Topli obrok (neoporeziva naknada)</field>
         <field name="sequence" eval="19" />
         <field name="code">TO</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NAKN" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NAKN" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -259,7 +257,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="name">Topli obrok (oporezivi dio)</field>
         <field name="sequence" eval="20" />
         <field name="code">TO_O</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NETO_SUB" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -278,7 +276,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="name">Neto plata prije poreza</field>
         <field name="sequence" eval="50" />
         <field name="code">NETO</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NETO" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -305,7 +303,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="name">Bruto osnovica</field>
         <field name="sequence" eval="60" />
         <field name="code">BR_OSN</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.BR_OSN" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.BR_OSN" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -320,7 +318,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="name">Obustava 1</field>
         <field name="sequence" eval="100" />
         <field name="code">OB_1</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.OBUST" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.OBUST" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -334,7 +332,7 @@ result = 0
         <field name="name">Lični odbitak - umanjenje osnovice za porez</field>
         <field name="sequence" eval="299" />
         <field name="code">LIC_ODB</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.LIC_ODB" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.LIC_ODB" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -350,7 +348,7 @@ result = 300.00
         <field name="name">Porez = Osnov(BR_OSN - D_IZ - LIC_ODB) x Por%</field>
         <field name="sequence" eval="300" />
         <field name="code">POREZ</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.POREZ" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.POREZ" />
         <field name="condition_select">none</field>
         <field name="register_id" ref="contrib_register_por" />
         <field name="amount_select">code</field>
@@ -371,7 +369,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="name">NETO poslije poreza</field>
         <field name="sequence" eval="310" />
         <field name="code">NETO_POS</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.NETO_POS" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_POS" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
@@ -385,7 +383,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="name">UKUPNO = Neto - Porez + Naknade - Obustave</field>
         <field name="sequence" eval="350" />
         <field name="code">UKUPNO</field>
-        <field name="category_id" ref="l10n_bs_hr_payroll.UKUPNO" />
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.UKUPNO" />
         <field name="register_id" ref="contrib_register_isp" />
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
