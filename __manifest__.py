@@ -8,6 +8,10 @@
     'depends': ["hr", "hr_contract", "payroll", "base_address_extended", "l10n_bs", "l10n_bs_hr_timesheet"],
     'data': [
         "data/hr_payroll_rules.xml",
+        "data/hr_payroll_contrib_register.xml",
+        "data/hr_payroll_category.xml",
+        "data/hr_payroll_leve_type.xml",
+        "data/hr_payroll_rule_param.xml",
         "data/hr_payroll_rules_dopr_iz.xml",
         "data/hr_payroll_rules_dopr_na.xml",
         "data/hr_payroll_rules_dopr_iz_na.xml",

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+     <!-- ====== Odsustva - tipovi ===== -->
+    <record id="holiday_status_drz_pra" model="hr.leave.type">
+        <field name="name">Državni praznik</field>
+        <field name="requires_allocation">no</field>
+        <field name="employee_requests">no</field>
+        <field name="color_name">lightyellow</field>
+        <field name="responsible_id" ref="base.user_admin"/>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="holiday_status_vje_pra" model="hr.leave.type">
+        <field name="name">Vjerski praznik</field>
+        <field name="requires_allocation">no</field>
+        <field name="employee_requests">no</field>
+        <field name="color_name">lightgreen</field>
+        <field name="responsible_id" ref="base.user_admin"/>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="leave_cekanje" model="hr.leave.type">
+        <field name="name">Čekanje</field>
+        <field name="requires_allocation">no</field>
+        <!--
+            <field name="leave_validation_type">both</field>
+            <field name="allocation_validation_type">officer</field>
+        -->
+        <field name="request_unit">hour</field>
+        <field name="unpaid" eval="False"/>
+        <field name="color">5</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="leave_rod_ods" model="hr.leave.type">
+        <field name="name">Roditeljsko odsustvo</field>
+        <field name="requires_allocation">no</field>
+        <field name="request_unit">hour</field>
+        <field name="unpaid" eval="True"/>
+        <field name="color">6</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+</odoo>
