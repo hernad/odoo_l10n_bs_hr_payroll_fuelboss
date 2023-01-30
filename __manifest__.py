@@ -17,7 +17,7 @@
         "data/hr_payroll_rules_dopr_iz_na.xml",
         "data/hr_payroll_rules_detas.xml",
         "data/hr_payroll_rules_end.xml",
-        "data/hr_sistematizacija.xml",
+        "data/hr_payroll_fb_sistematizacija.xml",
         #"data/hr_payroll_rules_delete.xml",
         "data/res.bank.csv",
         "views/employee_code.xml",
