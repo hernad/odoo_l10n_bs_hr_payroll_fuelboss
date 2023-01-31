@@ -49,10 +49,11 @@ class Task(models.Model):
                 virtual_id = 0
                 if not type(timesheet.id) is int:
                    if type(timesheet.id) is models.NewId:
-                       new_virtual_id = int(timesheet.id.ref.replace('virtual_', ''))
-                       if new_virtual_id > virtual_id:
-                           virtual_id = new_virtual_id
-                           value = timesheet[field_name]
+                       if timesheet.id.ref:
+                            new_virtual_id = int(timesheet.id.ref.replace('virtual_', ''))
+                            if new_virtual_id > virtual_id:
+                                virtual_id = new_virtual_id
+                                value = timesheet[field_name]
         return value
 
     @api.depends('timesheet_ids.unit_amount', 'timesheet_ids.work_type_id', 'timesheet_ids.name', 'timesheet_ids.date',
