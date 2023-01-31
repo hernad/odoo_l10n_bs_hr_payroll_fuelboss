@@ -1,19 +1,123 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
+     <record id="hr_salary_rule_lic_odb" model="hr.salary.rule">
+        <field name="name">Lični odbitak - umanjenje osnovice za porez</field>
+        <field name="sequence" eval="500" />
+        <field name="code">LIC_ODB</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.LIC_ODB" />
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+result_rate = contract.koef_lo * 100
+if result_rate == 0:
+   result_qty = 0
+result = 300.00
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="hr_salary_rule_porez" model="hr.salary.rule">
+        <field name="name">Porez = Osnov(BR_OSN - D_IZ - LIC_ODB) x Por%</field>
+        <field name="sequence" eval="510" />
+        <field name="code">POREZ</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.POREZ" />
+        <field name="condition_select">none</field>
+        <field name="register_id" ref="contrib_register_por" />
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+result_rate = float(payslip.rule_parameter('POREZ'))
+osnovica = categories.BR_OSN - categories.D_IZ
+lic_odb = categories.LIC_ODB
+if lic_odb > osnovica:
+    result = 0.00
+else:
+    result = osnovica - lic_odb
+result = round(result, int(payslip.rule_parameter('ZAOK')))
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="hr_salary_rule_neto_pos" model="hr.salary.rule">
+        <field name="name">NETO poslije poreza</field>
+        <field name="sequence" eval="520" />
+        <field name="code">NETO_POS</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_POS" />
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+result = categories.NETO - categories.POREZ
+result = round(result, int(payslip.rule_parameter('ZAOK')))
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="hr_salary_rule_sati" model="hr.salary.rule">
+        <field name="name">NETO SATI</field>
+        <field name="sequence" eval="630" />
+        <field name="code">NETO_S</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_S" />
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+result = 0
+#result_rate = 100
+days_tsh_10_sf = worked_days.TSH_10_SF and worked_days.TSH_10_SF.number_of_hours
+days_tsh_11_s = worked_days.TSH_11_S and worked_days.TSH_11_S.number_of_hours
+days_tsh_20_nf = worked_days.TSH_20_NF and worked_days.TSH_20_NF.number_of_hours
+days_tsh_21_n = worked_days.TSH_21_N and worked_days.TSH_21_N.number_of_hours
+result_qty = days_tsh_10_sf + days_tsh_11_s + days_tsh_20_nf + days_tsh_21_n
+result_qty += worked_days.REST and abs(worked_days.REST.number_of_hours)
+result_qty += worked_days.DRZAVNI_PRAZNIK and abs(worked_days.DRZAVNI_PRAZNIK.number_of_hours)
+result_qty += worked_days.VJERSKI_PRAZNIK and abs(worked_days.VJERSKI_PRAZNIK.number_of_hours)
+result_qty += worked_days.BOLOVANJE and abs(worked_days.BOLOVANJE.number_of_hours)
+result_qty += worked_days.GODISNJI_ODMOR and abs(worked_days.GODISNJI_ODMOR.number_of_hours)
+result_qty += worked_days.NEPLACENO_ODSUSTVO and abs(worked_days.NEPLACENO_ODSUSTVO.number_of_hours)
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="hr_salary_rule_ukupno" model="hr.salary.rule">
+        <field name="name">UKUPNO ZA ISPLATU (Neto-Porez+Naknade-Obustave)</field>
+        <field name="sequence" eval="640" />
+        <field name="code">UKUPNO</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.UKUPNO" />
+        <field name="register_id" ref="contrib_register_isp" />
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+result = categories.NETO_POS + categories.NAKN - categories.OBUST
+result = round(result, int(payslip.rule_parameter('ZAOK')))
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+
     <record id="structure_fbih" model="hr.payroll.structure">
         <field name="code">BASEF</field>
         <field name="name">Fiksni obračun</field>
         <field
-            eval="[(6, 0, [ref('hr_salary_rule_rr'), ref('hr_salary_rule_kor_min'),
-                   ref('hr_salary_rule_mr'), ref('hr_salary_rule_roditelj'),
-                   ref('hr_salary_rule_nr'), ref('hr_salary_rule_ceka'),
-                   ref('hr_salary_rule_dpraz'), ref('hr_salary_rule_r_dpraz'),
-                   ref('hr_salary_rule_to_o'), ref('hr_salary_rule_godis'), hr_salary_rule_bolov,
-                   ref('hr_salary_rule_to'), ref('hr_salary_rule_neto'), ref('hr_salary_rule_neto_pos'), ref('hr_salary_rule_bruto_osn'),
+            eval="[(6, 0, [ref('hr_salary_rule_rr'),
+                   ref('hr_salary_rule_nr'),
+                   ref('hr_salary_rule_dpraz'),
+                   ref('hr_salary_rule_vpraz'),
+                   ref('hr_salary_rule_r_dpraz'),
+                   ref('hr_salary_rule_godis'),
+                   ref('hr_salary_rule_bolov'),
+                   ref('hr_salary_rule_ceka'),
+                   ref('hr_salary_rule_kor_min'),
+                   ref('hr_salary_rule_mr'),
+                   ref('hr_salary_rule_nep_ods'),
+                   ref('hr_salary_rule_rod_ods'),
+                   ref('hr_salary_rule_to_o'),
+                   ref('hr_salary_rule_to'),
+                   ref('hr_salary_rule_neto'),
+                   ref('hr_salary_rule_bruto_osn'),
+                   ref('hr_salary_rule_neto_pos'),
                    ref('hr_salary_rule_dopr_na'),ref('hr_salary_rule_dopr_iz'),ref('hr_salary_rule_dopr_pio'),ref('hr_salary_rule_dopr_zdr'),ref('hr_salary_rule_dopr_zap'),
                    ref('hr_salary_rule_lic_odb'),ref('hr_salary_rule_porez'),
-                   ref('hr_salary_rule_ukupno')])]"
+                   ref('hr_salary_rule_ukupno'),
+                   ref('hr_salary_rule_sati')])]"
             name="rule_ids"
         />
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
@@ -23,15 +127,27 @@
         <field name="code">BASEF_MET</field>
         <field name="name">Proizvodnja - metalska industrija</field>
         <field
-            eval="[(6, 0, [ref('hr_salary_rule_rr'), ref('hr_salary_rule_kor_min_met'),
-                   ref('hr_salary_rule_mr'), ref('hr_salary_rule_nr'), ref('hr_salary_rule_roditelj'),
+            eval="[(6, 0, [ref('hr_salary_rule_rr'),
+                   ref('hr_salary_rule_nr'),
+                   ref('hr_salary_rule_dpraz'),
+                   ref('hr_salary_rule_vpraz'),
+                   ref('hr_salary_rule_r_dpraz'),
+                   ref('hr_salary_rule_godis'),
+                   ref('hr_salary_rule_bolov'),
                    ref('hr_salary_rule_ceka'),
-                   ref('hr_salary_rule_dpraz'), ref('hr_salary_rule_r_dpraz'),
-                   ref('hr_salary_rule_to_o'), ref('hr_salary_rule_godis'), hr_salary_rule_bolov,
-                   ref('hr_salary_rule_to'), ref('hr_salary_rule_neto'), ref('hr_salary_rule_neto_pos'), ref('hr_salary_rule_bruto_osn'),
+                   ref('hr_salary_rule_kor_min_met'),
+                   ref('hr_salary_rule_mr'),
+                   ref('hr_salary_rule_nep_ods'),
+                   ref('hr_salary_rule_rod_ods'),
+                   ref('hr_salary_rule_to_o'),
+                   ref('hr_salary_rule_to'),
+                   ref('hr_salary_rule_neto'),
+                   ref('hr_salary_rule_bruto_osn'),
+                   ref('hr_salary_rule_neto_pos'),
                    ref('hr_salary_rule_dopr_na'),ref('hr_salary_rule_dopr_iz'),ref('hr_salary_rule_dopr_pio'),ref('hr_salary_rule_dopr_zdr'),ref('hr_salary_rule_dopr_zap'),
                    ref('hr_salary_rule_lic_odb'),ref('hr_salary_rule_porez'),
-                   ref('hr_salary_rule_ukupno')])]"
+                   ref('hr_salary_rule_ukupno'),
+                   ref('hr_salary_rule_sati')])]"
             name="rule_ids"
         />
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>

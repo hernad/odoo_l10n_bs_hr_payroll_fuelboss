@@ -91,4 +91,53 @@
         <field name="code">D_NA</field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
+
+    <record id="NETO_S" model="hr.salary.rule.category">
+        <field name="name">Neto satnica</field>
+        <field name="code">NETO_S</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="D_PIO" model="hr.salary.rule.category">
+        <field name="name">Doprinos PIO (iz+na)</field>
+        <field name="code">D_PIO</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="D_ZDR" model="hr.salary.rule.category">
+        <field name="name">Doprinos za zdravstvo (iz+na)</field>
+        <field name="code">D_ZDR</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="D_ZAP" model="hr.salary.rule.category">
+        <field name="name">Doprinos za zapošljavanje (iz+na)</field>
+        <field name="code">D_ZAP</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="D_ZDR_F" model="hr.salary.rule.category">
+        <field name="name">Doprinos za zdravstvo FBiH (iz+na)</field>
+        <field name="code">D_ZDR_F</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="D_ZDR_K" model="hr.salary.rule.category">
+        <field name="name">Doprinos za zdravstvo kantoni (iz+na)</field>
+        <field name="code">D_ZDR_K</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="D_ZAP_F" model="hr.salary.rule.category">
+        <field name="name">Doprinos za zapošljavanje FBiH (iz+na)</field>
+        <field name="code">D_ZAP_F</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="D_ZAP_K" model="hr.salary.rule.category">
+        <field name="name">Doprinos za zapošljavanje kantoni (iz+na)</field>
+        <field name="code">D_ZAP_K</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
 </odoo>
