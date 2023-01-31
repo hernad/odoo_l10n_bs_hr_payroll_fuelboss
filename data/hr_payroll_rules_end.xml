@@ -3,7 +3,7 @@
 
     <record id="structure_fbih" model="hr.payroll.structure">
         <field name="code">BASEF</field>
-        <field name="name">Standardni obračun FBiH</field>
+        <field name="name">Fiksni obračun</field>
         <field
             eval="[(6, 0, [ref('hr_salary_rule_rr'), ref('hr_salary_rule_kor_min'),
                    ref('hr_salary_rule_mr'), ref('hr_salary_rule_roditelj'),
@@ -21,7 +21,7 @@
 
     <record id="structure_fbih_met" model="hr.payroll.structure">
         <field name="code">BASEF_MET</field>
-        <field name="name">Standardni obračun FBiH - metalska industrija</field>
+        <field name="name">Proizvodnja - metalska industrija</field>
         <field
             eval="[(6, 0, [ref('hr_salary_rule_rr'), ref('hr_salary_rule_kor_min_met'),
                    ref('hr_salary_rule_mr'), ref('hr_salary_rule_nr'), ref('hr_salary_rule_roditelj'),
@@ -40,7 +40,7 @@
 
     <record id="structure_dnj" model="hr.payroll.structure">
         <field name="code">BASED_NJ</field>
-        <field name="name">Detaširani radnici njemačka</field>
+        <field name="name">Detaširani radnici Njemačka</field>
         <field
             eval="[(6, 0, [ref('hr_salary_rule_dopr_pio_dnj'),
                  ref('hr_salary_rule_dopr_zdr_dnj'),
@@ -70,7 +70,7 @@
         <field name="contract_type_id" ref="hr.contract_type_permanent"/>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
--->    
+-->
 
 <!--
     <record id="res_address_test01" model="res.partner">

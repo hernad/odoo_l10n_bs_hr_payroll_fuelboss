@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
      <!-- ====== Odsustva - tipovi ===== -->
     <record id="holiday_status_drz_pra" model="hr.leave.type">
         <field name="name">Državni praznik</field>
@@ -20,15 +19,15 @@
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
-    <record id="leave_cekanje" model="hr.leave.type">
-        <field name="name">Čekanje</field>
+    <record id="leave_odsustvo" model="hr.leave.type">
+        <field name="name">Neplaćeno odsustvo</field>
         <field name="requires_allocation">no</field>
         <!--
             <field name="leave_validation_type">both</field>
             <field name="allocation_validation_type">officer</field>
         -->
         <field name="request_unit">hour</field>
-        <field name="unpaid" eval="False"/>
+        <field name="unpaid" eval="True"/>
         <field name="color">5</field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -42,4 +41,21 @@
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
+    <record id="leave_godisnji" model="hr.leave.type">
+        <field name="name">Godišnji odmor</field>
+        <field name="requires_allocation">no</field>
+        <field name="request_unit">hour</field>
+        <field name="unpaid" eval="False"/>
+        <field name="color">7</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="leave_bolov" model="hr.leave.type">
+        <field name="name">Bolovanje</field>
+        <field name="requires_allocation">no</field>
+        <field name="request_unit">hour</field>
+        <field name="unpaid" eval="False"/>
+        <field name="color">8</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
 </odoo>

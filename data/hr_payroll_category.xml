@@ -15,7 +15,7 @@
     </record>
 
     <record id="NETO_SUB" model="hr.salary.rule.category">
-        <field name="name">Neto primanja - analitika</field>
+        <field name="name">Neto primanja: analitika</field>
         <field name="code">NETO_SUB</field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -33,7 +33,7 @@
     </record>
 
     <record id="BRUTO_SUB" model="hr.salary.rule.category">
-        <field name="name">Bruto primanja - analitika</field>
+        <field name="name">Bruto primanja: analitika</field>
         <field name="code">BRUTO_SUB</field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -69,7 +69,7 @@
     </record>
 
     <record id="D_IZ_SUB" model="hr.salary.rule.category">
-      <field name="name">Doprinosi IZ plate - analitika</field>
+      <field name="name">Doprinosi IZ plate: analitika</field>
       <field name="code">D_IZ_SUB</field>
       <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -81,7 +81,7 @@
     </record>
 
     <record id="D_NA_SUB" model="hr.salary.rule.category">
-        <field name="name">Doprinosi NA platu - analitika</field>
+        <field name="name">Doprinosi NA platu: analitika</field>
         <field name="code">D_NA_SUB</field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
