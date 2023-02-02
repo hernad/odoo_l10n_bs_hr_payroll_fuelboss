@@ -120,6 +120,21 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
+    <record id="hr_salary_rule_bolov_pov" model="hr.salary.rule">
+        <field name="name">Bolovanje, povreda na radu (100%)</field>
+        <field name="sequence" eval="26" />
+        <field name="code">BOLOV_POV</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+result_qty =  worked_days.POVREDA_NA_RADU and abs(worked_days.POVREDA_NA_RADU.number_of_hours)
+result = contract.br_bod * float(payslip.rule_parameter('VRBOD'))
+result = round(result, int(payslip.rule_parameter('ZAOK')))
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
     <record id="hr_salary_rule_nep_ods" model="hr.salary.rule">
         <field name="name">Neplaćeno odsustvo</field>
         <field name="sequence" eval="28" />
@@ -183,6 +198,7 @@ result += round(result_rules.DPRAZ.amount * result_rules.DPRAZ.quantity, zaok)
 result += round(result_rules.VPRAZ.amount * result_rules.VPRAZ.quantity, zaok)
 result += round(result_rules.GODIS.amount * result_rules.GODIS.quantity, zaok)
 result += round(result_rules.BOLOV.amount * result_rules.BOLOV.quantity, zaok)
+result += round(result_rules.BOLOV_POV.amount * result_rules.BOLOV_POV.quantity, zaok)
 result += round(result_rules.CEKANJE.amount * result_rules.CEKANJE.quantity, zaok)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
@@ -207,6 +223,24 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
+    <record id="hr_salary_rule_stim" model="hr.salary.rule">
+        <field name="name">Stimulacija</field>
+        <field name="sequence" eval="37" />
+        <field name="code">STIMUL</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+result_qty =  0
+result = 0
+if result &lt;= 0:
+    result_qty = 0
+    result = 0
+result = round(result, int(payslip.rule_parameter('ZAOK')))
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
     <record id="hr_salary_rule_kor_min_met" model="hr.salary.rule">
         <field name="name">Korekcija - minimum po kolektivnom ugovoru METAL</field>
         <field name="sequence" eval="40" />
@@ -222,8 +256,10 @@ neto += round(result_rules.VPRAZ.amount * result_rules.VPRAZ.quantity, zaok)
 neto += round(result_rules.R_DPRAZ.amount * result_rules.R_DPRAZ.quantity, zaok)
 neto += round(result_rules.GODIS.amount * result_rules.GODIS.quantity, zaok)
 neto += round(result_rules.BOLOV.amount * result_rules.BOLOV.quantity, zaok)
+neto += round(result_rules.BOLOV_POV.amount * result_rules.BOLOV_POV.quantity, zaok)
 neto += round(result_rules.CEKANJE.amount * result_rules.CEKANJE.quantity, zaok)
 neto += round(result_rules.MINRAD.amount * result_rules.MINRAD.quantity * result_rules.MINRAD.rate/100, zaok)
+neto += round(result_rules.STIMUL.amount * result_rules.STIMUL.quantity, zaok)
 neto += round(result_rules.TO_O.amount * result_rules.TO_O.quantity, zaok)
 result_qty = worked_days.WORK100.number_of_hours
 # plata po min neto satnici metalaca
@@ -253,8 +289,10 @@ neto += round(result_rules.VPRAZ.amount * result_rules.VPRAZ.quantity, zaok)
 neto += round(result_rules.R_DPRAZ.amount * result_rules.R_DPRAZ.quantity, zaok)
 neto += round(result_rules.GODIS.amount * result_rules.GODIS.quantity, zaok)
 neto += round(result_rules.BOLOV.amount * result_rules.BOLOV.quantity, zaok)
+neto += round(result_rules.BOLOV_POV.amount * result_rules.BOLOV_POV.quantity, zaok)
 neto += round(result_rules.CEKANJE.amount * result_rules.CEKANJE.quantity, zaok)
 neto += round(result_rules.MINRAD.amount * result_rules.MINRAD.quantity * result_rules.MINRAD.rate/100, zaok)
+neto += round(result_rules.STIMUL.amount * result_rules.STIMUL.quantity, zaok)
 neto += round(result_rules.TO_O.amount * result_rules.TO_O.quantity, zaok)
 
 result_qty = worked_days.WORK100.number_of_hours
@@ -265,6 +303,23 @@ if min_met > neto:
    result = (min_met - neto) / result_qty
 if result == 0:
    result_qty = 0
+result = round(result, int(payslip.rule_parameter('ZAOK')))
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+
+    <record id="hr_salary_rule_bolov_preko" model="hr.salary.rule">
+        <field name="name">Bolovanje preko 42 dana (0%)</field>
+        <field name="sequence" eval="44" />
+        <field name="code">BOL_PREKO</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+result_qty =  worked_days.BOLOVANJE_PREKO_42_DANA and abs(worked_days.BOLOVANJE_PREKO_42_DANA.number_of_hours)
+# redovan rad 0%
+result = contract.br_bod * float(payslip.rule_parameter('VRBOD')) * 0.0
 result = round(result, int(payslip.rule_parameter('ZAOK')))
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
@@ -320,8 +375,10 @@ result += round(result_rules.VPRAZ.amount * result_rules.VPRAZ.quantity * result
 result += round(result_rules.R_DPRAZ.amount * result_rules.R_DPRAZ.quantity * result_rules.R_DPRAZ.rate/100, zaok)
 result += round(result_rules.GODIS.amount * result_rules.GODIS.quantity * result_rules.GODIS.rate/100, zaok)
 result += round(result_rules.BOLOV.amount * result_rules.BOLOV.quantity * result_rules.BOLOV.rate/100, zaok)
+result += round(result_rules.BOLOV_POV.amount * result_rules.BOLOV_POV.quantity * result_rules.BOLOV.rate/100, zaok)
 result += round(result_rules.CEKANJE.amount * result_rules.CEKANJE.quantity * result_rules.CEKANJE.rate/100, zaok)
 result += round(result_rules.MINRAD.amount * result_rules.MINRAD.quantity * result_rules.MINRAD.rate/100, zaok)
+result += round(result_rules.STIMUL.amount * result_rules.STIMUL.quantity, zaok)
 result += round(result_rules.TO_O.amount * result_rules.TO_O.quantity * result_rules.TO_O.rate/100, zaok)
 result += round(result_rules.KOREK_MET.amount * result_rules.KOREK_MET.quantity * result_rules.KOREK_MET.rate/100, zaok) if result_rules.KOREK_MET else 0
 result += round(result_rules.KOREK.amount * result_rules.KOREK.quantity * result_rules.KOREK.rate/100, zaok) if result_rules.KOREK else 0
@@ -356,8 +413,5 @@ result = 0
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
-
-
-
 
 </odoo>

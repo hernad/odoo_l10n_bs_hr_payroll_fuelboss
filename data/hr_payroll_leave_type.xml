@@ -58,4 +58,22 @@
         <field name="color">8</field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
+
+    <record id="leave_bolov_preko" model="hr.leave.type">
+        <field name="name">Bolovanje preko 42 dana</field>
+        <field name="requires_allocation">no</field>
+        <field name="request_unit">hour</field>
+        <field name="unpaid" eval="False"/>
+        <field name="color">8</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="leave_bolov_pov_rad" model="hr.leave.type">
+        <field name="name">Povreda na radu</field>
+        <field name="requires_allocation">no</field>
+        <field name="request_unit">hour</field>
+        <field name="unpaid" eval="False"/>
+        <field name="color">9</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
 </odoo>
