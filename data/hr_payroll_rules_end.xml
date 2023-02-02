@@ -67,12 +67,13 @@ days_tsh_11_s = worked_days.TSH_11_S and worked_days.TSH_11_S.number_of_hours
 days_tsh_20_nf = worked_days.TSH_20_NF and worked_days.TSH_20_NF.number_of_hours
 days_tsh_21_n = worked_days.TSH_21_N and worked_days.TSH_21_N.number_of_hours
 result_qty = days_tsh_10_sf + days_tsh_11_s + days_tsh_20_nf + days_tsh_21_n
-result_qty += worked_days.REST and abs(worked_days.REST.number_of_hours)
 result_qty += worked_days.DRZAVNI_PRAZNIK and abs(worked_days.DRZAVNI_PRAZNIK.number_of_hours)
 result_qty += worked_days.VJERSKI_PRAZNIK and abs(worked_days.VJERSKI_PRAZNIK.number_of_hours)
 result_qty += worked_days.BOLOVANJE and abs(worked_days.BOLOVANJE.number_of_hours)
+result_qty += worked_days.POVREDA_NA_RADU and abs(worked_days.POVREDA_NA_RADU.number_of_hours)
 result_qty += worked_days.GODISNJI_ODMOR and abs(worked_days.GODISNJI_ODMOR.number_of_hours)
 result_qty += worked_days.NEPLACENO_ODSUSTVO and abs(worked_days.NEPLACENO_ODSUSTVO.number_of_hours)
+result_qty += worked_days.REST and abs(worked_days.REST.number_of_hours)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -97,7 +98,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="code">BASEF</field>
         <field name="name">Fiksni obračun</field>
         <field
-            eval="[(6, 0, [ref('hr_salary_rule_rr'),
+            eval="[(6, 0, [ref('hr_salary_rule_rr_f'),
                    ref('hr_salary_rule_nr'),
                    ref('hr_salary_rule_dpraz'),
                    ref('hr_salary_rule_vpraz'),
@@ -105,14 +106,11 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
                    ref('hr_salary_rule_godis'),
                    ref('hr_salary_rule_bolov'),
                    ref('hr_salary_rule_bolov_pov'),
-                   ref('hr_salary_rule_ceka'),
-                   ref('hr_salary_rule_kor_min'),
-                   ref('hr_salary_rule_mr'),
                    ref('hr_salary_rule_nep_ods'),
                    ref('hr_salary_rule_rod_ods'),
                    ref('hr_salary_rule_bolov_preko'),
+                   ref('hr_salary_rule_ceka_f'),
                    ref('hr_salary_rule_stim'),
-                   ref('hr_salary_rule_to_o'),
                    ref('hr_salary_rule_to'),
                    ref('hr_salary_rule_neto'),
                    ref('hr_salary_rule_bruto_osn'),
