@@ -115,7 +115,8 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
                    ref('hr_salary_rule_neto'),
                    ref('hr_salary_rule_bruto_osn'),
                    ref('hr_salary_rule_neto_pos'),
-                   ref('hr_salary_rule_dopr_na'),ref('hr_salary_rule_dopr_iz'),ref('hr_salary_rule_dopr_pio'),ref('hr_salary_rule_dopr_zdr'),ref('hr_salary_rule_dopr_zap'),
+                   ref('hr_salary_rule_dopr_na'),ref('hr_salary_rule_dopr_iz'),
+                   ref('hr_salary_rule_dopr_pio'),ref('hr_salary_rule_dopr_zdr'),ref('hr_salary_rule_dopr_zap'),
                    ref('hr_salary_rule_lic_odb'),ref('hr_salary_rule_porez'),
                    ref('hr_salary_rule_ukupno'),
                    ref('hr_salary_rule_sati')])]"
@@ -148,7 +149,8 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
                    ref('hr_salary_rule_neto'),
                    ref('hr_salary_rule_bruto_osn'),
                    ref('hr_salary_rule_neto_pos'),
-                   ref('hr_salary_rule_dopr_na'),ref('hr_salary_rule_dopr_iz'),ref('hr_salary_rule_dopr_pio'),ref('hr_salary_rule_dopr_zdr'),ref('hr_salary_rule_dopr_zap'),
+                   ref('hr_salary_rule_dopr_na'),ref('hr_salary_rule_dopr_iz'),
+                   ref('hr_salary_rule_dopr_pio'),ref('hr_salary_rule_dopr_zdr'),ref('hr_salary_rule_dopr_zap'),
                    ref('hr_salary_rule_lic_odb'),ref('hr_salary_rule_porez'),
                    ref('hr_salary_rule_ukupno'),
                    ref('hr_salary_rule_sati')])]"
@@ -162,9 +164,11 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="code">BASED_NJ</field>
         <field name="name">Detaširani radnici Njemačka</field>
         <field
-            eval="[(6, 0, [ref('hr_salary_rule_dopr_pio_dnj'),
+            eval="[(6, 0, [ref('hr_salary_rule_br_osn_dnj'),
+                 ref('hr_salary_rule_dopr_pio_dnj'),
                  ref('hr_salary_rule_dopr_zdr_dnj'),
-                 ref('hr_salary_rule_dopr_zap_dnj')])]"
+                 ref('hr_salary_rule_dopr_zap_dnj'),
+                 ref('hr_salary_rule_sati')])]"
             name="rule_ids"
         />
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>

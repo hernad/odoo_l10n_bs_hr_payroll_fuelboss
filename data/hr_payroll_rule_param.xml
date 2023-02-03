@@ -63,7 +63,7 @@
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_param_min_neto_sat_met_2022" model="hr.rule.parameter.value">
-        <field name="parameter_value">3.5</field>
+        <field name="parameter_value">2.31</field>
         <field name="rule_parameter_id" ref="rule_param_min_neto_sat_met"/>
         <field name="date_from" eval="datetime(2022, 1, 1).date()"/>
     </record>
@@ -192,6 +192,19 @@
         <field name="parameter_value">10.0</field>
         <field name="rule_parameter_id" ref="rule_parameter_porez"/>
         <field name="date_from" eval="datetime(2020, 1, 1).date()"/>
+    </record>
+
+    <!-- Detaširani radnici bruto osnova -->
+    <record id="rule_param_br_osn_dnj" model="hr.rule.parameter">
+        <field name="name">Bruto osnova detaširani radnici Njemačka</field>
+        <field name="code">BR_OSN_DNJ</field>
+        <field name="country_id" ref="base.ba"/>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+    <record id="rule_param_koef_zaok_2022" model="hr.rule.parameter.value">
+        <field name="parameter_value">1529.00</field>
+        <field name="rule_parameter_id" ref="rule_param_br_osn_dnj"/>
+        <field name="date_from" eval="datetime(2022, 1, 1).date()"/>
     </record>
 
 </odoo>

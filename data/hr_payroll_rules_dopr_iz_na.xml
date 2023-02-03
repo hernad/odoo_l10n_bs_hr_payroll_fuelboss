@@ -8,6 +8,7 @@
     <field name="code">D_PIO</field>
     <field name="appears_on_payslip" eval="False" />
     <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.D_PIO" />
+    <field name="register_id" ref="contrib_register_pio" />
     <field name="condition_select">none</field>
     <field name="amount_select">code</field>
     <field name="amount_python_compute">
