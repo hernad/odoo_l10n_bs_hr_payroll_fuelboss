@@ -218,7 +218,7 @@ result += result_rules.BOLOV_POV and round(result_rules.BOLOV_POV.amount * resul
     </record>
 
     <record id="hr_salary_rule_ceka" model="hr.salary.rule">
-        <field name="name">Čekanje (granski ugovor metalci)</field>
+        <field name="name">Privremeni prekid rada</field>
         <field name="sequence" eval="34" />
         <field name="code">CEKANJE</field>
         <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
@@ -303,12 +303,59 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-result_qty =  0
-result = 0
-if result &lt;= 0:
-    result_qty = 0
-    result = 0
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+result_qty = inputs.STIMULACIJA and inputs.STIMULACIJA.amount_qty
+result = inputs.STIMULACIJA and inputs.STIMULACIJA.amount
+#result = round(result, int(payslip.rule_parameter('ZAOK')))
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="hr_salary_rule_stim_f" model="hr.salary.rule">
+        <field name="name">Stimulacija (f)</field>
+        <field name="sequence" eval="38" />
+        <field name="code">STIMUL</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+
+stimulacija = inputs.STIMULACIJA and inputs.STIMULACIJA.amount
+zaok = int(payslip.rule_parameter('ZAOK'))
+if stimulacija > 0:
+    neto_bez_stimulacije = round(result_rules.REDRAD.amount * result_rules.REDRAD.quantity, zaok)
+    neto_bez_stimulacije += result_rules.NOCNI and round(result_rules.NOCNI.amount * result_rules.NOCNI.quantity, zaok)
+    neto_bez_stimulacije += result_rules.DPRAZ and round(result_rules.DPRAZ.amount * result_rules.DPRAZ.quantity, zaok)
+    neto_bez_stimulacije += result_rules.VPRAZ and round(result_rules.VPRAZ.amount * result_rules.VPRAZ.quantity, zaok)
+    neto_bez_stimulacije += result_rules.R_DPRAZ and round(result_rules.R_DPRAZ.amount * result_rules.R_DPRAZ.quantity, zaok)
+    neto_bez_stimulacije += result_rules.GODIS and round(result_rules.GODIS.amount * result_rules.GODIS.quantity, zaok)
+    neto_bez_stimulacije += result_rules.BOLOV and round(result_rules.BOLOV.amount * result_rules.BOLOV.quantity, zaok)
+    neto_bez_stimulacije += result_rules.BOLOV_POV and round(result_rules.BOLOV_POV.amount * result_rules.BOLOV_POV.quantity, zaok)
+    neto_bez_stimulacije += result_rules.CEKANJE and round(result_rules.CEKANJE.amount * result_rules.CEKANJE.quantity, zaok)
+
+    # ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
+    obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
+
+    fiks_pla = contract.wage * obrac_period
+    # dnevno 1% prosjecne plate FBiH
+    to_dnevno = float(payslip.rule_parameter('PROS_N_P_FBIH')) * 1 / 100.00
+    to_umanjiti_platu = (worked_days.WORK100 and worked_days.WORK100.number_of_days) * to_dnevno
+    neto_plata_bez_to = fiks_pla - to_umanjiti_platu + stimulacija
+
+    # neto_prije oporezivanja trazimo
+    kbo = float(payslip.rule_parameter('KOEF_BO'))/100
+    kd_iz = (float(payslip.rule_parameter('D_IZ_PIO')) + float(payslip.rule_parameter('D_IZ_ZDR')) + float(payslip.rule_parameter('D_IZ_ZAP')))/100
+    kpor = float(payslip.rule_parameter('POREZ'))/100
+    lic_odb = contract.koef_lo * 300
+    neto_poslije = neto_plata_bez_to
+    if (neto_poslije - lic_odb * kpor) &lt;= 0:
+        neto_sa_stimul_prije = neto_poslije
+    else:
+        neto_sa_stimul_prije = (neto_poslije - lic_odb * kpor) / (1 - kbo * kpor * (1 - kd_iz))
+
+    # stimulacija
+    stimul_prije = neto_sa_stimul_prije - neto_bez_stimulacije 
+    result_qty = 1
+    result = round(stimul_prije, zaok)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
