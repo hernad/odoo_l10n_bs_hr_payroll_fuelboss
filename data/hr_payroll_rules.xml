@@ -465,6 +465,8 @@ result_qty = worked_days.WORK100.number_of_hours
 min_pl = result_qty * float(payslip.rule_parameter('MNS_FBIH'))
 # mora biti i od veca od minimalne neto plate u FBiH
 min_pl = max(min_pl, float(payslip.rule_parameter('MIN_NETO_FBIH')))
+# mora biti i od veca od minimalne neto plate metalaca u FBiH
+min_pl = max(min_pl, float(payslip.rule_parameter('MIN_MET_NETO_FBIH')))
 result = 0
 if min_met &gt; neto:
    result = (min_pl - neto) / result_qty
