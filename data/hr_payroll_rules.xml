@@ -461,6 +461,8 @@ neto += result_rules.TO_O and round(result_rules.TO_O.amount * result_rules.TO_O
 result_qty = worked_days.WORK100.number_of_hours
 # plata po min neto satnici metalaca
 min_met = result_qty * float(payslip.rule_parameter('MNS_FBIH'))
+# mora biti i od veca od minimalne neto plate u FBiH
+min_met = max(min_met, float(payslip.rule_parameter('MIN_NETO_FBIH')))
 result = 0
 if min_met &gt; neto:
    result = (min_met - neto) / result_qty
