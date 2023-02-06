@@ -71,6 +71,7 @@ result_qty += worked_days.DRZAVNI_PRAZNIK and abs(worked_days.DRZAVNI_PRAZNIK.nu
 result_qty += worked_days.VJERSKI_PRAZNIK and abs(worked_days.VJERSKI_PRAZNIK.number_of_hours)
 result_qty += worked_days.BOLOVANJE and abs(worked_days.BOLOVANJE.number_of_hours)
 result_qty += worked_days.POVREDA_NA_RADU and abs(worked_days.POVREDA_NA_RADU.number_of_hours)
+result_qty += worked_days.BOLOVANJE_PREKO_42_DANA and abs(worked_days.BOLOVANJE_PREKO_42_DANA.number_of_hours)
 result_qty += worked_days.GODISNJI_ODMOR and abs(worked_days.GODISNJI_ODMOR.number_of_hours)
 result_qty += worked_days.NEPLACENO_ODSUSTVO and abs(worked_days.NEPLACENO_ODSUSTVO.number_of_hours)
 result_qty += worked_days.REST and abs(worked_days.REST.number_of_hours)
