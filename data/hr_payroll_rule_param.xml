@@ -11,8 +11,20 @@
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_param_koef_zaok_2020" model="hr.rule.parameter.value">
-        <field name="parameter_value">2</field>
+        <field name="parameter_value">4</field>
         <field name="rule_parameter_id" ref="rule_param_koef_zaok"/>
+        <field name="date_from" eval="datetime(2020, 1, 1).date()"/>
+    </record>
+
+    <record id="rule_param_koef_zaok_u" model="hr.rule.parameter">
+        <field name="name">Zaokruženje ukupno</field>
+        <field name="code">ZAOKU</field>
+        <field name="country_id" ref="base.ba"/>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+    <record id="rule_param_koef_zaok_u_2020" model="hr.rule.parameter.value">
+        <field name="parameter_value">2</field>
+        <field name="rule_parameter_id" ref="rule_param_koef_zaok_u"/>
         <field name="date_from" eval="datetime(2020, 1, 1).date()"/>
     </record>
 
@@ -79,6 +91,11 @@
         <field name="parameter_value">1110.00</field>
         <field name="rule_parameter_id" ref="rule_param_prosj_neto_pl"/>
         <field name="date_from" eval="datetime(2022, 7, 1).date()"/>
+    </record>
+    <record id="rule_param_koef_bo_2022_12" model="hr.rule.parameter.value">
+        <field name="parameter_value">1161.00</field>
+        <field name="rule_parameter_id" ref="rule_param_prosj_neto_pl"/>
+        <field name="date_from" eval="datetime(2022, 12, 1).date()"/>
     </record>
 
     <!-- Vrijednost boda 2022/07 -->

@@ -10,9 +10,10 @@
     <field name="condition_select">none</field>
     <field name="amount_select">code</field>
     <field name="amount_python_compute">
+zaok = int(payslip.rule_parameter('ZAOK'))
 result_rate = float(payslip.rule_parameter('D_IZ_PIO')) + float(payslip.rule_parameter('D_IZ_ZDR')) + float(payslip.rule_parameter('D_IZ_ZAP'))
 result = categories.BR_OSN
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+result = round(result, zaok)
     </field>
     <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
 </record>
@@ -27,9 +28,10 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
     <field name="condition_select">none</field>
     <field name="amount_select">code</field>
     <field name="amount_python_compute">
+zaok = int(payslip.rule_parameter('ZAOK'))
 result_rate = float(payslip.rule_parameter('D_IZ_PIO'))
 result = categories.BR_OSN
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+result = round(result, zaok)
     </field>
     <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
 </record>
@@ -44,9 +46,10 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
     <field name="condition_select">none</field>
     <field name="amount_select">code</field>
     <field name="amount_python_compute">
+zaok = int(payslip.rule_parameter('ZAOK'))
 result_rate = float(payslip.rule_parameter('D_IZ_ZDR'))
 result = categories.BR_OSN
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+result = round(result, zaok)
     </field>
     <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
 </record>
@@ -61,9 +64,10 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
     <field name="condition_select">none</field>
     <field name="amount_select">code</field>
     <field name="amount_python_compute">
+zaok = int(payslip.rule_parameter('ZAOK'))
 result_rate = float(payslip.rule_parameter('D_IZ_ZAP'))
 result = categories.BR_OSN
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+result = round(result, zaok)
     </field>
     <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
 </record>

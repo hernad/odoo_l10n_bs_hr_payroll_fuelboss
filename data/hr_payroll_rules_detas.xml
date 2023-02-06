@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-
-<!-- ====== Detaširani - obračun doprinosa ============ -->
-<record id="hr_salary_rule_br_osn_dnj" model="hr.salary.rule">
+    <!-- ====== Detaširani - obračun doprinosa ============ -->
+    <record id="hr_salary_rule_br_osn_dnj" model="hr.salary.rule">
         <field name="name">Bruto osnovica detašmani</field>
         <field name="sequence" eval="399" />
         <field name="code">BR_OSN_DET</field>
@@ -12,10 +11,12 @@
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
+zaok = int(payslip.rule_parameter('ZAOK'))
+# ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
 obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
 result_qty = 1
 result_rate = obrac_period * 100
-result = float(payslip.rule_parameter('BR_OSN_DNJ'))
+result = round(float(payslip.rule_parameter('BR_OSN_DNJ')), zaok)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -32,11 +33,10 @@ result = float(payslip.rule_parameter('BR_OSN_DNJ'))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-# ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
-obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
+zaoku = int(payslip.rule_parameter('ZAOKU'))
 result_rate = float(payslip.rule_parameter('D_IZ_PIO')) + float(payslip.rule_parameter('D_NA_PIO'))
-result = float(payslip.rule_parameter('BR_OSN_DNJ')) * obrac_period
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+br_osn_det = result_rules.BR_OSN_DET.amount * result_rules.BR_OSN_DET.quantity * result_rules.BR_OSN_DET.rate/100
+result = round(br_osn_det, zaoku)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -51,11 +51,10 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-# ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
-obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
+zaoku = int(payslip.rule_parameter('ZAOKU'))
 result_rate = float(payslip.rule_parameter('D_IZ_ZDR')) + float(payslip.rule_parameter('D_NA_ZDR'))
-result = float(payslip.rule_parameter('BR_OSN_DNJ')) * obrac_period
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+br_osn_det = result_rules.BR_OSN_DET.amount * result_rules.BR_OSN_DET.quantity * result_rules.BR_OSN_DET.rate/100
+result = round(br_osn_det, zaoku)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -71,11 +70,10 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-# ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
-obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
+zaoku = int(payslip.rule_parameter('ZAOKU'))
 result_rate = float(payslip.rule_parameter('D_IZ_ZDR')) + float(payslip.rule_parameter('D_NA_ZDR'))
-result = float(payslip.rule_parameter('BR_OSN_DNJ')) * 10.2/100.00 * obrac_period
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+br_osn_det = result_rules.BR_OSN_DET.amount * result_rules.BR_OSN_DET.quantity * result_rules.BR_OSN_DET.rate/100
+result = round(br_osn_det * 10.2/100, zaoku)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -91,14 +89,13 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-# ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
-obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
+zaoku = int(payslip.rule_parameter('ZAOKU'))
 result_qty = 0
 if employee.address_home_id and employee.address_home_id.state_id.code == 'KZE':
     result_qty = 1
 result_rate = float(payslip.rule_parameter('D_IZ_ZDR')) + float(payslip.rule_parameter('D_NA_ZDR'))
-result = float(payslip.rule_parameter('BR_OSN_DNJ')) * 89.8/100.00 * obrac_period
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+br_osn_det = result_rules.BR_OSN_DET.amount * result_rules.BR_OSN_DET.quantity * result_rules.BR_OSN_DET.rate/100
+result = round(br_osn_det * 89.8/100, zaoku)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -114,14 +111,13 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
+zaoku = int(payslip.rule_parameter('ZAOKU'))
 result_qty = 0
-# ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
-obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
 if employee.address_home_id and employee.address_home_id.state_id.code == 'KSA':
     result_qty = 1
 result_rate = float(payslip.rule_parameter('D_IZ_ZDR')) + float(payslip.rule_parameter('D_NA_ZDR'))
-result = float(payslip.rule_parameter('BR_OSN_DNJ')) * 89.8/100.00 * obrac_period
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+br_osn_det = result_rules.BR_OSN_DET.amount * result_rules.BR_OSN_DET.quantity * result_rules.BR_OSN_DET.rate/100
+result = round(br_osn_det * 89.8/100, zaoku)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -137,14 +133,13 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
+zaoku = int(payslip.rule_parameter('ZAOKU'))
 result_qty = 0
-# ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
-obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
 if employee.address_home_id and employee.address_home_id.state_id.code == 'KTZ':
     result_qty = 1
 result_rate = float(payslip.rule_parameter('D_IZ_ZDR')) + float(payslip.rule_parameter('D_NA_ZDR'))
-result = float(payslip.rule_parameter('BR_OSN_DNJ')) * 89.8/100.00 * obrac_period
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+br_osn_det = result_rules.BR_OSN_DET.amount * result_rules.BR_OSN_DET.quantity * result_rules.BR_OSN_DET.rate/100
+result = round(br_osn_det * 89.8/100, zaoku)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -160,14 +155,13 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
+zaoku = int(payslip.rule_parameter('ZAOKU'))
 result_qty = 0
-# ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
-obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
 if employee.address_home_id and employee.address_home_id.state_id.code == 'KSB':
     result_qty = 1
 result_rate = float(payslip.rule_parameter('D_IZ_ZDR')) + float(payslip.rule_parameter('D_NA_ZDR'))
-result = float(payslip.rule_parameter('BR_OSN_DNJ')) * 89.8/100.00 * obrac_period
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+br_osn_det = result_rules.BR_OSN_DET.amount * result_rules.BR_OSN_DET.quantity * result_rules.BR_OSN_DET.rate/100
+result = round(br_osn_det * 89.8/100, zaoku)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -182,12 +176,10 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-# ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
-obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
-
+zaoku = int(payslip.rule_parameter('ZAOKU'))
 result_rate = float(payslip.rule_parameter('D_IZ_ZAP')) + float(payslip.rule_parameter('D_NA_ZAP'))
-result = float(payslip.rule_parameter('BR_OSN_DNJ')) * obrac_period
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+br_osn_det = result_rules.BR_OSN_DET.amount * result_rules.BR_OSN_DET.quantity * result_rules.BR_OSN_DET.rate/100
+result = round(br_osn_det, zaoku)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -203,12 +195,10 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-# ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
-obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
-
+zaoku = int(payslip.rule_parameter('ZAOKU'))
 result_rate = float(payslip.rule_parameter('D_IZ_ZAP')) + float(payslip.rule_parameter('D_NA_ZAP'))
-result = float(payslip.rule_parameter('BR_OSN_DNJ')) * 30/100.00 * obrac_period
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+br_osn_det = result_rules.BR_OSN_DET.amount * result_rules.BR_OSN_DET.quantity * result_rules.BR_OSN_DET.rate/100
+result = round(br_osn_det * 30/100, zaoku)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -224,15 +214,13 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
+zaoku = int(payslip.rule_parameter('ZAOKU'))
 result_qty = 0
-# ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
-obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
-
 if employee.address_home_id and employee.address_home_id.state_id.code == 'KZE':
     result_qty = 1
 result_rate = float(payslip.rule_parameter('D_IZ_ZAP')) + float(payslip.rule_parameter('D_NA_ZAP'))
-result = float(payslip.rule_parameter('BR_OSN_DNJ')) * 70/100.00 * obrac_period
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+br_osn_det = result_rules.BR_OSN_DET.amount * result_rules.BR_OSN_DET.quantity * result_rules.BR_OSN_DET.rate/100
+result = round(br_osn_det * 70/100, zaoku)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -248,15 +236,13 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
+zaoku = int(payslip.rule_parameter('ZAOKU'))
 result_qty = 0
-# ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
-obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
-
 if employee.address_home_id and employee.address_home_id.state_id.code == 'KSA':
     result_qty = 1
 result_rate = float(payslip.rule_parameter('D_IZ_ZAP')) + float(payslip.rule_parameter('D_NA_ZAP'))
-result = float(payslip.rule_parameter('BR_OSN_DNJ')) * 70/100.00 * obrac_period
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+br_osn_det = result_rules.BR_OSN_DET.amount * result_rules.BR_OSN_DET.quantity * result_rules.BR_OSN_DET.rate/100
+result = round(br_osn_det * 70/100, zaoku)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -272,15 +258,13 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
+zaoku = int(payslip.rule_parameter('ZAOKU'))
 result_qty = 0
-# ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
-obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
-
 if employee.address_home_id and employee.address_home_id.state_id.code == 'KTZ':
     result_qty = 1
 result_rate = float(payslip.rule_parameter('D_IZ_ZAP')) + float(payslip.rule_parameter('D_NA_ZAP'))
-result = float(payslip.rule_parameter('BR_OSN_DNJ')) * 70/100.00 * obrac_period
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+br_osn_det = result_rules.BR_OSN_DET.amount * result_rules.BR_OSN_DET.quantity * result_rules.BR_OSN_DET.rate/100
+result = round(br_osn_det * 70/100, zaoku)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -296,15 +280,13 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="condition_select">none</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
+zaoku = int(payslip.rule_parameter('ZAOKU'))
 result_qty = 0
-# ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
-obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
-
 if employee.address_home_id and employee.address_home_id.state_id.code == 'KSB':
     result_qty = 1
 result_rate = float(payslip.rule_parameter('D_IZ_ZAP')) + float(payslip.rule_parameter('D_NA_ZAP'))
-result = float(payslip.rule_parameter('BR_OSN_DNJ')) * 70/100.00 * obrac_period
-result = round(result, int(payslip.rule_parameter('ZAOK')))
+br_osn_det = result_rules.BR_OSN_DET.amount * result_rules.BR_OSN_DET.quantity * result_rules.BR_OSN_DET.rate/100
+result = round(br_osn_det * 70/100, zaoku)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
