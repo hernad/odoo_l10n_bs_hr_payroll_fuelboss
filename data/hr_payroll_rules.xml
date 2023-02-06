@@ -115,7 +115,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
     </record>
 
     <record id="hr_salary_rule_r_dpraz" model="hr.salary.rule">
-        <field name="name">Rad na državni praznik (+100%)</field>
+        <field name="name">Rad na državni praznik (+40%)</field>
         <field name="sequence" eval="15" />
         <field name="code">R_DPRAZ</field>
         <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
@@ -127,7 +127,7 @@ days_tsh_30_wf = worked_days.TSH_30_WF and worked_days.TSH_30_WF.number_of_hours
 days_tsh_31_w = worked_days.TSH_31_W and worked_days.TSH_31_W.number_of_hours
 result_qty =  days_tsh_30_wf + days_tsh_31_w
 # kao redovan rad
-result = contract.br_bod * float(payslip.rule_parameter('VRBOD'))
+result = contract.br_bod * float(payslip.rule_parameter('VRBOD')) * 0.4
 result = round(result, int(payslip.rule_parameter('ZAOK')))
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
@@ -353,7 +353,7 @@ if stimulacija > 0:
         neto_sa_stimul_prije = (neto_poslije - lic_odb * kpor) / (1 - kbo * kpor * (1 - kd_iz))
 
     # stimulacija
-    stimul_prije = neto_sa_stimul_prije - neto_bez_stimulacije 
+    stimul_prije = neto_sa_stimul_prije - neto_bez_stimulacije
     result_qty = 1
     result = round(stimul_prije, zaok)
         </field>
