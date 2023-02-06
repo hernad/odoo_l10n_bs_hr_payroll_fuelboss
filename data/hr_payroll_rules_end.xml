@@ -79,7 +79,7 @@ result_qty += worked_days.REST and abs(worked_days.REST.number_of_hours)
     </record>
 
     <record id="hr_salary_rule_ukupno" model="hr.salary.rule">
-        <field name="name">UKUPNO ZA ISPLATU (Neto-Porez+Naknade-Obustave)</field>
+        <field name="name">== UKUPNO ZA ISPLATU ===</field>
         <field name="sequence" eval="640" />
         <field name="code">UKUPNO</field>
         <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.UKUPNO" />

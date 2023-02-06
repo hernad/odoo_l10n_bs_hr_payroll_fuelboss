@@ -399,7 +399,7 @@ if stimulacija &gt; 0:
     </record>
 
     <record id="hr_salary_rule_kor_min_met" model="hr.salary.rule">
-        <field name="name">Korekcija - minimum po kolektivnom ugovoru METAL</field>
+        <field name="name">Korekcija kolekt.ug. metalci</field>
         <field name="sequence" eval="40" />
         <field name="code">KOREK_MET</field>
         <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
