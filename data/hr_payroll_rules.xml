@@ -233,7 +233,7 @@ result = round(min_met,4)
     </record>
 
     <record id="hr_salary_rule_ceka_f" model="hr.salary.rule">
-        <field name="name">Čekanje (f)</field>
+        <field name="name">Privremeni prekid rada (f)</field>
         <field name="sequence" eval="35" />
         <field name="code">CEKANJE</field>
         <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
