@@ -17,7 +17,7 @@ result = 300.00
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
-    <record id="hr_salary_rule_br_osn_bp" model="hr.salary.rule">
+    <record id="hr_salary_rule_bruto_osn_bp" model="hr.salary.rule">
         <field name="name">Bruto osnova bolovanje preko 42d</field>
         <field name="sequence" eval="501" />
         <field name="code">BR_OSN_BP</field>
