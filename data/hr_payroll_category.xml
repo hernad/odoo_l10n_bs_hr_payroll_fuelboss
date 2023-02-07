@@ -50,6 +50,12 @@
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
+    <record id="D_IZ_BP" model="hr.salary.rule.category">
+        <field name="name">Doprinosi IZ za bolovanje preko 42d</field>
+        <field name="code">D_IZ_BP</field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
     <record id="BR_OSN_DET" model="hr.salary.rule.category">
         <field name="name">Bruto osnovica detašmani</field>
         <field name="code">BR_OSN_DET</field>
