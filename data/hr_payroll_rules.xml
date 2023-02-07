@@ -157,6 +157,23 @@ result = round(result, zaok)
       <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
+    <record id="hr_salary_rule_godis_f" model="hr.salary.rule">
+        <field name="name">Godišnji odmor (f)</field>
+        <field name="sequence" eval="21" />
+        <field name="code">GODIS</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+zaok = int(payslip.rule_parameter('ZAOK'))
+bod_sat_fiksno = round(result_rules.REDRAD.amount, zaok)
+result_qty = worked_days.GODISNJI_ODMOR and abs(worked_days.GODISNJI_ODMOR.number_of_hours)
+result = bod_sat_fiksno
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+
     <record id="hr_salary_rule_bolov" model="hr.salary.rule">
         <field name="name">Bolovanje do 42d (90%)</field>
         <field name="sequence" eval="25" />
@@ -170,6 +187,22 @@ result_qty =  worked_days.BOLOVANJE and abs(worked_days.BOLOVANJE.number_of_hour
 # redovan rad 90%
 result = contract.br_bod * float(payslip.rule_parameter('VRBOD')) * 0.9
 result = round(result, zaok)
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="hr_salary_rule_bolov_f" model="hr.salary.rule">
+        <field name="name">Bolovanje do 42d (f)</field>
+        <field name="sequence" eval="26" />
+        <field name="code">BOLOV</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+zaok = int(payslip.rule_parameter('ZAOK'))
+bod_sat_fiksno = round(result_rules.REDRAD.amount, zaok)
+result_qty = worked_days.BOLOVANJE and abs(worked_days.BOLOVANJE.number_of_hours)
+result = bod_sat_fiksno
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
@@ -277,36 +310,10 @@ result = round(min_met, zaok)
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
 zaok = int(payslip.rule_parameter('ZAOK'))
-# ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
-obrac_period = (worked_days.WORK100 and worked_days.WORK100.number_of_hours) / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
-# sati cekanja
+bod_sat_fiksno = round(result_rules.REDRAD.amount, zaok)
 neradni_sati = worked_days.REST and abs(worked_days.REST.number_of_hours)
-
-# ucesce ovog tipa primanja u ukupnom fondu sati koji se obracunava
-# ako je 160 sati ukupan fond sati, a 80 se odnosi na redovan rad, ucesce je 0.5
-ucesce_sati = 0
-if worked_days.WORK100 and worked_days.WORK100.number_of_hours:
-   ucesce_sati = neradni_sati / (worked_days.WORK100 and worked_days.WORK100.number_of_hours)
-
-fiks_pla = contract.wage * obrac_period
-# dnevno 1% prosjecne plate FBiH
-to_dnevno = float(payslip.rule_parameter('PROS_N_P_FBIH')) * 1 / 100.00
-to_umanjiti_platu = (worked_days.WORK100 and worked_days.WORK100.number_of_days) * to_dnevno
-neto_plata_bez_to = fiks_pla - to_umanjiti_platu
-
-# neto_prije oporezivanja trazimo
-kbo = float(payslip.rule_parameter('KOEF_BO'))/100
-kd_iz = (float(payslip.rule_parameter('D_IZ_PIO')) + float(payslip.rule_parameter('D_IZ_ZDR')) + float(payslip.rule_parameter('D_IZ_ZAP')))/100
-kpor = float(payslip.rule_parameter('POREZ'))/100
-lic_odb = contract.koef_lo * 300
-neto_poslije = neto_plata_bez_to
-if (neto_poslije - lic_odb * kpor) &lt;= 0:
-  neto_prije = neto_poslije
-else:
-  neto_prije = (neto_poslije - lic_odb * kpor) / (1 - kbo * kpor * (1 - kd_iz))
-
 result_qty = neradni_sati
-result = round(neto_prije * ucesce_sati / neradni_sati, zaok)
+result = bod_sat_fiksno
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
