@@ -17,8 +17,29 @@ result = 300.00
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
+    <record id="hr_salary_rule_br_osn_bp" model="hr.salary.rule">
+        <field name="name">Bruto osnova bolovanje preko 42d</field>
+        <field name="sequence" eval="501" />
+        <field name="code">BR_OSN_BP</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.BR_OSN_BP" />
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+zaoku = int(payslip.rule_parameter('ZAOKU'))
+bol_preko = result_rules.BOL_PREKO and round(result_rules.BOL_PREKO.amount * result_rules.BOL_PREKO.quantity, zaoku)
+result = 0
+result_qty = 0
+result_rate = 0
+if bol_preko &gt; 0.0:
+    result_rate =  result_rules.BR_OSN.rate
+    result_qty =  1
+    result = bol_preko
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
     <record id="hr_salary_rule_porez" model="hr.salary.rule">
-        <field name="name">Porez = Osnov(BR_OSN - D_IZ - LIC_ODB) x Por%</field>
+        <field name="name">Porez = (BR_OSN-D_IZ-LIC_ODB-BR_OSN_BP) x Por%</field>
         <field name="sequence" eval="510" />
         <field name="code">POREZ</field>
         <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.POREZ" />
@@ -27,7 +48,7 @@ result = 300.00
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
 result_rate = float(payslip.rule_parameter('POREZ'))
-osnovica = categories.BR_OSN - categories.D_IZ
+osnovica = categories.BR_OSN - categories.D_IZ - categories.BR_OSN_BP
 lic_odb = categories.LIC_ODB
 if lic_odb > osnovica:
     result = 0.00
@@ -71,7 +92,7 @@ result_qty += worked_days.DRZAVNI_PRAZNIK and abs(worked_days.DRZAVNI_PRAZNIK.nu
 result_qty += worked_days.VJERSKI_PRAZNIK and abs(worked_days.VJERSKI_PRAZNIK.number_of_hours)
 result_qty += worked_days.BOLOVANJE and abs(worked_days.BOLOVANJE.number_of_hours)
 result_qty += worked_days.POVREDA_NA_RADU and abs(worked_days.POVREDA_NA_RADU.number_of_hours)
-result_qty += worked_days.BOLOVANJE_PREKO_42_DANA and abs(worked_days.BOLOVANJE_PREKO_42_DANA.number_of_hours)
+#result_qty += worked_days.BOLOVANJE_PREKO_42_DANA and abs(worked_days.BOLOVANJE_PREKO_42_DANA.number_of_hours)
 result_qty += worked_days.GODISNJI_ODMOR and abs(worked_days.GODISNJI_ODMOR.number_of_hours)
 result_qty += worked_days.NEPLACENO_ODSUSTVO and abs(worked_days.NEPLACENO_ODSUSTVO.number_of_hours)
 result_qty += worked_days.REST and abs(worked_days.REST.number_of_hours)
@@ -115,6 +136,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
                    ref('hr_salary_rule_to'),
                    ref('hr_salary_rule_neto'),
                    ref('hr_salary_rule_bruto_osn'),
+                   ref('hr_salary_rule_bruto_osn_bp'),
                    ref('hr_salary_rule_neto_pos'),
                    ref('hr_salary_rule_dopr_na'),ref('hr_salary_rule_dopr_iz'),
                    ref('hr_salary_rule_dopr_pio'),ref('hr_salary_rule_dopr_zdr'),ref('hr_salary_rule_dopr_zap'),
@@ -149,6 +171,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
                    ref('hr_salary_rule_to'),
                    ref('hr_salary_rule_neto'),
                    ref('hr_salary_rule_bruto_osn'),
+                   ref('hr_salary_rule_bruto_osn_bp'),
                    ref('hr_salary_rule_neto_pos'),
                    ref('hr_salary_rule_dopr_na'),ref('hr_salary_rule_dopr_iz'),
                    ref('hr_salary_rule_dopr_pio'),ref('hr_salary_rule_dopr_zdr'),ref('hr_salary_rule_dopr_zap'),
