@@ -353,15 +353,16 @@ zaoku = int(payslip.rule_parameter('ZAOKU'))
 zaok = int(payslip.rule_parameter('ZAOK'))
 result = 0
 if stimulacija &gt; 0:
-    neto_bez_stim_prije = round(result_rules.REDRAD.amount * result_rules.REDRAD.quantity, zaoku)
-    neto_bez_stim_prije += result_rules.NOCNI and round(result_rules.NOCNI.amount * result_rules.NOCNI.quantity, zaoku)
-    neto_bez_stim_prije += result_rules.DPRAZ and round(result_rules.DPRAZ.amount * result_rules.DPRAZ.quantity, zaoku)
-    neto_bez_stim_prije += result_rules.VPRAZ and round(result_rules.VPRAZ.amount * result_rules.VPRAZ.quantity, zaoku)
-    neto_bez_stim_prije += result_rules.R_DPRAZ and round(result_rules.R_DPRAZ.amount * result_rules.R_DPRAZ.quantity, zaoku)
-    neto_bez_stim_prije += result_rules.GODIS and round(result_rules.GODIS.amount * result_rules.GODIS.quantity, zaoku)
-    neto_bez_stim_prije += result_rules.BOLOV and round(result_rules.BOLOV.amount * result_rules.BOLOV.quantity, zaoku)
-    neto_bez_stim_prije += result_rules.BOLOV_POV and round(result_rules.BOLOV_POV.amount * result_rules.BOLOV_POV.quantity, zaoku)
-    neto_bez_stim_prije += result_rules.CEKANJE and round(result_rules.CEKANJE.amount * result_rules.CEKANJE.quantity, zaoku)
+    neto_bez_stim_prije = round(round(result_rules.REDRAD.amount, zaok) * result_rules.REDRAD.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.NOCNI and round(round(result_rules.NOCNI.amount, zaok) * result_rules.NOCNI.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.DPRAZ and round(round(result_rules.DPRAZ.amount, zaok) * result_rules.DPRAZ.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.VPRAZ and round(round(result_rules.VPRAZ.amount, zaok) * result_rules.VPRAZ.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.R_DPRAZ and round(round(result_rules.R_DPRAZ.amount, zaok) * result_rules.R_DPRAZ.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.GODIS and round(round(result_rules.GODIS.amount, zaok) * result_rules.GODIS.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.BOLOV and round(round(result_rules.BOLOV.amount, zaok) * result_rules.BOLOV.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.BOLOV_POV and round(round(result_rules.BOLOV_POV.amount, zaok) * result_rules.BOLOV_POV.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.MINRAD and round(result_rules.MINRAD.amount * result_rules.MINRAD.quantity * result_rules.MINRAD.rate/100, zaoku)
+    neto_bez_stim_prije += result_rules.CEKANJE and round(round(result_rules.CEKANJE.amount, zaok) * result_rules.CEKANJE.quantity, zaoku)
 
     # neto_prije oporezivanja trazimo
     kbo = float(payslip.rule_parameter('KOEF_BO'))/100
@@ -410,6 +411,7 @@ if stimulacija &gt; 0:
     neto_bez_stimulacije += result_rules.GODIS and round(result_rules.GODIS.amount * result_rules.GODIS.quantity, zaoku)
     neto_bez_stimulacije += result_rules.BOLOV and round(result_rules.BOLOV.amount * result_rules.BOLOV.quantity, zaoku)
     neto_bez_stimulacije += result_rules.BOLOV_POV and round(result_rules.BOLOV_POV.amount * result_rules.BOLOV_POV.quantity, zaoku)
+    neto_bez_stimulacije += result_rules.MINRAD and round(result_rules.MINRAD.amount * result_rules.MINRAD.quantity * result_rules.MINRAD.rate/100, zaoku)
     neto_bez_stimulacije += result_rules.CEKANJE and round(result_rules.CEKANJE.amount * result_rules.CEKANJE.quantity, zaoku)
 
     # ako se obracun odnosi na 15 od 30 dana ovog mjeseca, obrac_period = 0.5
