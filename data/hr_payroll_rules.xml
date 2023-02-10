@@ -350,6 +350,7 @@ result = round(result, zaok)
         <field name="amount_python_compute">
 stimulacija = (inputs.STIMULACIJA and inputs.STIMULACIJA.amount)
 zaoku = int(payslip.rule_parameter('ZAOKU'))
+zaok = int(payslip.rule_parameter('ZAOK'))
 result = 0
 if stimulacija &gt; 0:
     neto_bez_stim_prije = round(result_rules.REDRAD.amount * result_rules.REDRAD.quantity, zaoku)
@@ -383,7 +384,7 @@ if stimulacija &gt; 0:
     # stimulacija
     stim_prije = neto_sa_stim_prije - neto_bez_stim_prije
     result_qty = 1
-    result = round(stim_prije, zaoku)
+    result = round(stim_prije, zaok)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
