@@ -371,10 +371,9 @@ if stimulacija &gt; 0:
     lic_odb = contract.koef_lo * 300
 
     neto_poslije_bez_stim = neto_bez_stim_prije * (1 - kbo * kpor * (1 - kd_iz)) + lic_odb * kpor
-    # neto_poslije_bez_stim mora biti veci od 0
-    if neto_poslije_bez_stim &lt; 0:
+    # neto_poslije_bez_stim ne moze biti vece od neto_bez_stim_prije
+    if neto_poslije_bez_stim &gt; neto_bez_stim_prije:
        neto_poslije_bez_stim = neto_bez_stim_prije
-
 
     neto_poslije_sa_stim = neto_poslije_bez_stim + stimulacija
     if (neto_poslije_sa_stim - lic_odb * kpor) &lt;= 0:
