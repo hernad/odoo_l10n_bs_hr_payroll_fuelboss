@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem id="payroll_fuelboss_reporting"
+              name="Reporting"
+              sequence="10"
+              parent="payroll.payroll_menu_root"/>
+
+
+    <record model="ir.ui.view" id="payroll_reporting_fb_form_view">
+        <field name="name">payroll.fuelboss.wizard.form.view</field>
+        <field name="model">payroll.fueboss.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Payroll Report">
+                <group>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <group>
+                        <field name="employee_ids" widget="many2many_tags"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Print" name="action_print_pdf_report" type="object" class="btn-primary"/>
+                    <button string="Generate xlsx" name="action_generate_xlsx_report" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_payroll_fuelboss_pdf_report" model="ir.actions.act_window">
+        <field name="name">PDF Report</field>
+        <field name="res_model">payroll.fueboss.pdf.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    
+    <record id="action_payroll_fuelboss_xlsx_report" model="ir.actions.act_window">
+        <field name="name">XLSX Report</field>
+        <field name="res_model">payroll.fueboss.xlsx.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="payroll_fuelboss_reporting_sub"
+              name="PDF Report"
+              sequence="3"
+              action="action_payroll_fuelboss_pdf_report"
+              parent="payroll_fuelboss_reporting"/>
+
+</odoo>

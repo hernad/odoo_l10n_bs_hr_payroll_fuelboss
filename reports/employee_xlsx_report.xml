@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <report
+            id="action_payroll_fuelboss_xlsx_report"
+            model="payroll.fuelboss.report.wizard"
+            string="Generate XLSX Report"
+            report_type="xlsx"
+            name="l10n_bs_hr_payroll_fuelboss.employee_xlsx_report"
+            file="payroll_fuelboss_xlsx_report"
+            attachment_use="False"
+    />
+
+</odoo>
