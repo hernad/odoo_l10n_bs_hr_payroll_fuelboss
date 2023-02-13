@@ -402,7 +402,7 @@ if stimulacija &gt; 0:
 stimulacija = (inputs.STIMULACIJA and inputs.STIMULACIJA.amount)
 zaoku = int(payslip.rule_parameter('ZAOKU'))
 result = 0
-if stimulacija &gt; 0:
+if stimulacija != 0:
     neto_bez_stimulacije = round(result_rules.REDRAD.amount * result_rules.REDRAD.quantity, zaoku)
     neto_bez_stimulacije += result_rules.NOCNI and round(result_rules.NOCNI.amount * result_rules.NOCNI.quantity, zaoku)
     neto_bez_stimulacije += result_rules.DPRAZ and round(result_rules.DPRAZ.amount * result_rules.DPRAZ.quantity, zaoku)
