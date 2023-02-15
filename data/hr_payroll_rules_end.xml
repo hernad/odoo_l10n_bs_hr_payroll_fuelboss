@@ -142,13 +142,13 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="name">Fiksni obračun</field>
         <field
             eval="[(6, 0, [ref('hr_salary_rule_rr_f'),
-                   ref('hr_salary_rule_nr'),
-                   ref('hr_salary_rule_dpraz'),
-                   ref('hr_salary_rule_vpraz'),
-                   ref('hr_salary_rule_r_dpraz'),
+                   ref('hr_salary_rule_nr_f'),
+                   ref('hr_salary_rule_dpraz_f'),
+                   ref('hr_salary_rule_vpraz_f'),
+                   ref('hr_salary_rule_r_dpraz_f'),
                    ref('hr_salary_rule_godis_f'),
                    ref('hr_salary_rule_bolov_f'),
-                   ref('hr_salary_rule_bolov_pov'),
+                   ref('hr_salary_rule_bolov_pov_f'),
                    ref('hr_salary_rule_nep_ods'),
                    ref('hr_salary_rule_rod_ods'),
                    ref('hr_salary_rule_bolov_preko'),
