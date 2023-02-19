@@ -663,6 +663,23 @@ result = round(result, zaok)
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
+    <record id="hr_salary_rule_loan" model="hr.salary.rule">
+            <field name="code">LOAN</field>
+            <field name="name">Kredit</field>
+            <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.OBUST"/>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs.LOAN and - (inputs.LOAN.amount)</field>
+            <field name="appears_on_payslip" eval="True"/>
+            <field name="sequence" eval="60"/>
+            <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="hr_salary_rule_input_loan" model="hr.rule.input">
+            <field name="code">LOAN</field>
+            <field name="name">Kredit</field>
+            <field name="input_id" ref="hr_salary_rule_loan"/>
+    </record>
+
     <record id="hr_salary_rule_neto" model="hr.salary.rule">
         <field name="name">Neto plata prije poreza</field>
         <field name="sequence" eval="100" />
