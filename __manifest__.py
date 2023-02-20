@@ -5,9 +5,10 @@
     'category': 'Human Resources/Payroll',
     'sequence': 190,
     'summary': 'Bosnian Payroll data (FBiH) company FuelBoss doo Zenica',
-    'depends': ["hr", "hr_contract", "payroll", "base_address_extended", "l10n_bs", "l10n_bs_hr_timesheet"],
+    'depends': ["hr", "hr_contract", "payroll", "base_address_extended", "l10n_bs", "l10n_bs_hr_timesheet", "hr_payroll_input_add", "ohrms_loan"],
     'data': [
         "data/hr_loan_sequence.xml",
+        "data/hr_payroll_input_add_sequence.xml",
         "data/hr_payroll_contrib_register.xml",
         "data/hr_payroll_category.xml",
         "data/hr_payroll_leave_type.xml",

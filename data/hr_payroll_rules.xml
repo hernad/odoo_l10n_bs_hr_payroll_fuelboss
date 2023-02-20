@@ -449,12 +449,14 @@ result = round(result, zaok)
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
 stimulacija = 0
+result_qty = 0
 if inputs.STIMULACIJA and inputs.STIMULACIJA.contract_id.id == contract.id:       
    stimulacija = inputs.STIMULACIJA.amount
 zaoku = int(payslip.rule_parameter('ZAOKU'))
 zaok = int(payslip.rule_parameter('ZAOK'))
 result = 0
 if stimulacija != 0:
+    result_qty = 1
     neto_bez_stim_prije = round(result_rules.REDRAD.amount * result_rules.REDRAD.quantity, zaoku)
     neto_bez_stim_prije += result_rules.NOCNI and round(result_rules.NOCNI.amount * result_rules.NOCNI.quantity, zaoku)
     neto_bez_stim_prije += result_rules.DPRAZ and round(result_rules.DPRAZ.amount * result_rules.DPRAZ.quantity, zaoku)
@@ -501,6 +503,7 @@ if stimulacija != 0:
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
 # ista formula kao Stimulacija proizvod
+result_qty = 0
 stimulacija = 0
 if inputs.STIMULACIJA and inputs.STIMULACIJA.contract_id.id == contract.id:       
    stimulacija = inputs.STIMULACIJA.amount
@@ -508,6 +511,7 @@ zaoku = int(payslip.rule_parameter('ZAOKU'))
 zaok = int(payslip.rule_parameter('ZAOK'))
 result = 0
 if stimulacija != 0:
+    result_qty = 1
     neto_bez_stim_prije = round(result_rules.REDRAD.amount * result_rules.REDRAD.quantity, zaoku)
     neto_bez_stim_prije += result_rules.NOCNI and round(result_rules.NOCNI.amount * result_rules.NOCNI.quantity, zaoku)
     neto_bez_stim_prije += result_rules.DPRAZ and round(result_rules.DPRAZ.amount * result_rules.DPRAZ.quantity, zaoku)
@@ -542,6 +546,65 @@ if stimulacija != 0:
     result = round(stim_prije, zaok)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+<record id="hr_salary_rule_stim_add" model="hr.salary.rule">
+        <field name="name">Stimulacija (add)</field>
+        <field name="sequence" eval="38" />
+        <field name="code">STIM_ADD</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+stimulacija = 0
+result_qty = 0
+if inputs.ADD and inputs.ADD.contract_id.id == contract.id:       
+   stimulacija = inputs.ADD.amount
+zaoku = int(payslip.rule_parameter('ZAOKU'))
+zaok = int(payslip.rule_parameter('ZAOK'))
+result = 0
+if stimulacija != 0:
+    result_qty = 1
+    neto_bez_stim_prije = round(result_rules.REDRAD.amount * result_rules.REDRAD.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.NOCNI and round(result_rules.NOCNI.amount * result_rules.NOCNI.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.DPRAZ and round(result_rules.DPRAZ.amount * result_rules.DPRAZ.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.VPRAZ and round(round(result_rules.VPRAZ.amount, zaok) * result_rules.VPRAZ.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.R_DPRAZ and round(result_rules.R_DPRAZ.amount * result_rules.R_DPRAZ.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.GODIS and round(result_rules.GODIS.amount * result_rules.GODIS.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.BOLOV and round(result_rules.BOLOV.amount * result_rules.BOLOV.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.BOLOV_POV and round(result_rules.BOLOV_POV.amount * result_rules.BOLOV_POV.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.MINRAD and round(result_rules.MINRAD.amount * result_rules.MINRAD.quantity * result_rules.MINRAD.rate/100, zaoku)
+    neto_bez_stim_prije += result_rules.CEKANJE and round(result_rules.CEKANJE.amount * result_rules.CEKANJE.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.TO_O and round(result_rules.TO_O.amount * result_rules.TO_O.quantity, zaoku)
+
+    # neto_prije oporezivanja trazimo
+    kbo = float(payslip.rule_parameter('KOEF_BO'))/100
+    kd_iz = (float(payslip.rule_parameter('D_IZ_PIO')) + float(payslip.rule_parameter('D_IZ_ZDR')) + float(payslip.rule_parameter('D_IZ_ZAP')))/100
+    kpor = float(payslip.rule_parameter('POREZ'))/100
+    lic_odb = contract.koef_lo * 300
+
+    neto_poslije_bez_stim = neto_bez_stim_prije * (1 - kbo * kpor * (1 - kd_iz)) + lic_odb * kpor
+    # neto_poslije_bez_stim ne moze biti vece od neto_bez_stim_prije
+    if neto_poslije_bez_stim &gt; neto_bez_stim_prije:
+       neto_poslije_bez_stim = neto_bez_stim_prije
+
+    neto_poslije_sa_stim = neto_poslije_bez_stim + stimulacija
+    neto_sa_stim_prije = (neto_poslije_sa_stim - lic_odb * kpor) / (1 - kbo * kpor * (1 - kd_iz))
+    if neto_sa_stim_prije &lt;= neto_poslije_sa_stim:
+       neto_sa_stim_prije = neto_poslije_sa_stim
+        
+    # stimulacija
+    stim_prije = neto_sa_stim_prije - neto_bez_stim_prije
+    result_qty = 1
+    result = round(stim_prije, zaok)
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="hr_rule_input_payroll_input_add" model="hr.rule.input">
+            <field name="code">ADD</field>
+            <field name="name">Stimulacija</field>
+            <field name="input_id" ref="hr_salary_rule_stim_add"/>
     </record>
 
     <record id="hr_salary_rule_kor_min_met" model="hr.salary.rule">
@@ -668,7 +731,13 @@ result = round(result, zaok)
             <field name="name">Kredit</field>
             <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.OBUST"/>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute">result = inputs.LOAN and - (inputs.LOAN.amount)</field>
+            <field name="amount_python_compute">
+result_qty = 0
+result = 0
+if inputs.LOAN:
+   result_qty = 1
+   result = -inputs.LOAN.amount
+            </field>
             <field name="appears_on_payslip" eval="True"/>
             <field name="sequence" eval="60"/>
             <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
