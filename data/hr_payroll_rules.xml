@@ -631,6 +631,7 @@ neto += result_rules.BOL_PREKO and round(result_rules.BOL_PREKO.amount * result_
 neto += result_rules.CEKANJE and round(result_rules.CEKANJE.amount * result_rules.CEKANJE.quantity, zaoku)
 neto += result_rules.MINRAD and round(result_rules.MINRAD.amount * result_rules.MINRAD.quantity * result_rules.MINRAD.rate/100, zaoku)
 neto += result_rules.STIMUL and round(result_rules.STIMUL.amount * result_rules.STIMUL.quantity, zaoku)
+neto += result_rules.STIM_ADD and round(result_rules.STIM_ADD.amount * result_rules.STIM_ADD.quantity, zaoku)
 neto += result_rules.TO_O and round(result_rules.TO_O.amount * result_rules.TO_O.quantity, zaoku)
 result_qty = worked_days.WORK100.number_of_hours
 # plata po min neto satnici metalaca
@@ -674,6 +675,7 @@ neto += result_rules.BOL_PREKO and round(result_rules.BOL_PREKO.amount * result_
 neto += result_rules.CEKANJE and round(result_rules.CEKANJE.amount * result_rules.CEKANJE.quantity, zaoku)
 neto += result_rules.MINRAD and round(result_rules.MINRAD.amount * result_rules.MINRAD.quantity * result_rules.MINRAD.rate/100, zaoku)
 neto += result_rules.STIMUL and round(result_rules.STIMUL.amount * result_rules.STIMUL.quantity, zaoku)
+neto += result_rules.STIM_ADD and round(result_rules.STIM_ADD.amount * result_rules.STIM_ADD.quantity, zaoku)
 neto += result_rules.TO_O and round(result_rules.TO_O.amount * result_rules.TO_O.quantity, zaoku)
 
 result_qty = worked_days.WORK100.number_of_hours
@@ -771,6 +773,7 @@ result += result_rules.BOL_PREKO and round(result_rules.BOL_PREKO.amount * resul
 result += result_rules.CEKANJE and round(result_rules.CEKANJE.amount * result_rules.CEKANJE.quantity * result_rules.CEKANJE.rate/100, zaoku)
 result += result_rules.MINRAD and round(result_rules.MINRAD.amount * result_rules.MINRAD.quantity * result_rules.MINRAD.rate/100, zaoku)
 result += result_rules.STIMUL and round(result_rules.STIMUL.amount * result_rules.STIMUL.quantity, zaoku)
+result += result_rules.STIM_ADD and round(result_rules.STIM_ADD.amount * result_rules.STIM_ADD.quantity, zaoku)
 result += result_rules.TO_O and round(result_rules.TO_O.amount * result_rules.TO_O.quantity * result_rules.TO_O.rate/100, zaoku)
 result += result_rules.KOREK_MET and round(result_rules.KOREK_MET.amount * result_rules.KOREK_MET.quantity * result_rules.KOREK_MET.rate/100, zaoku) if result_rules.KOREK_MET else 0
 result += result_rules.KOREK and round(result_rules.KOREK.amount * result_rules.KOREK.quantity * result_rules.KOREK.rate/100, zaoku) if result_rules.KOREK else 0
