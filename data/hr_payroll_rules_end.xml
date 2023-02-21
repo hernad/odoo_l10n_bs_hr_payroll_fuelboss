@@ -212,7 +212,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
     </record>
 
     <record id="structure_dnj" model="hr.payroll.structure">
-        <field name="code">BASED_NJ</field>
+        <field name="code">INO_NJ</field>
         <field name="name">Detaširani radnici Njemačka</field>
         <field
             eval="[(6, 0, [ref('hr_salary_rule_br_osn_dnj'),

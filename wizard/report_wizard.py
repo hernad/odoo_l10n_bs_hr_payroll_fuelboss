@@ -27,8 +27,7 @@ class PayrollFbReportWizard(models.TransientModel):
 
 
 class PayrollFbReportPDF(models.AbstractModel):
-    _name = 'report.payroll.fueboss_pdf_template'
-
+    _name = 'report.payroll.fuelboss.pdf'
     def _get_report_values(self, docids, data=None):
         #domain = [('state', '!=', 'cancel')]
         domain = []
@@ -50,7 +49,7 @@ class PayrollFbReportPDF(models.AbstractModel):
 
 
 class PayrollFbReportXlsx(models.AbstractModel):
-    _name = 'report.payroll.fuelboss.xlsx_report'
+    _name = 'report.payroll.fuelboss.xlsx'
     _inherit = 'report.report_xlsx.abstract'
 
     def generate_xlsx_report(self, workbook, data, partners):
