@@ -736,7 +736,7 @@ result = round(result, zaok)
             <field name="amount_python_compute">
 result_qty = 0
 result = 0
-if inputs.LOAN:
+if inputs.LOAN and abs(inputs.LOAN.amount) &gt; 0:
    result_qty = 1
    result = -inputs.LOAN.amount
             </field>
