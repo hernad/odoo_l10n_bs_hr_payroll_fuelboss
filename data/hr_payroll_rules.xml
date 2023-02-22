@@ -219,6 +219,45 @@ result = bod_sat_fiksno * 0.4
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
+    <record id="hr_salary_rule_r_dpraz_n" model="hr.salary.rule">
+        <field name="name">Noćni rad na državni praznik (+52%)</field>
+        <field name="sequence" eval="17" />
+        <field name="code">R_DPRAZ_N</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+zaok = int(payslip.rule_parameter('ZAOK'))
+# 40_XF - work on holiday with food, 41_X - work on holiday bez food
+days_tsh_40_xf = worked_days.TSH_40_XF and worked_days.TSH_40_XF.number_of_hours
+days_tsh_41_x = worked_days.TSH_41_X and worked_days.TSH_41_X.number_of_hours
+result_qty =  days_tsh_40_xf + days_tsh_41_x
+# kao redovan rad
+result = contract.br_bod * float(payslip.rule_parameter('VRBOD')) * 0.52
+result = round(result, zaok)
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="hr_salary_rule_r_dpraz_n_f" model="hr.salary.rule">
+        <field name="name">Noćni rad na državni praznik f (+52%)</field>
+        <field name="sequence" eval="17" />
+        <field name="code">R_DPRAZ_N</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+zaok = int(payslip.rule_parameter('ZAOK'))
+# 40_XF - work on holiday with food, 41_X - work on holiday bez food
+days_tsh_40_xf = worked_days.TSH_40_XF and worked_days.TSH_40_XF.number_of_hours
+days_tsh_41_x = worked_days.TSH_41_X and worked_days.TSH_41_X.number_of_hours
+result_qty =  days_tsh_40_xf + days_tsh_41_x
+bod_sat_fiksno = round(result_rules.REDRAD.amount, zaok)
+result = bod_sat_fiksno * 0.52
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
     <record id="hr_salary_rule_godis" model="hr.salary.rule">
         <field name="name">Godišnji odmor</field>
         <field name="sequence" eval="20" />
@@ -320,7 +359,7 @@ result = bod_sat_fiksno
     </record>
 
     <record id="hr_salary_rule_bolov_preko" model="hr.salary.rule">
-        <field name="name">Bolovanje preko 42d (80% POS_PUNA)</field>
+        <field name="name">Bolovanje preko 42d (80% POS_PLATA_SAT)</field>
         <field name="sequence" eval="27" />
         <field name="code">BOL_PREKO</field>
         <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_SUB" />
@@ -331,16 +370,21 @@ zaok = int(payslip.rule_parameter('ZAOK'))
 result_qty = worked_days.BOLOVANJE_PREKO_42_DANA and abs(worked_days.BOLOVANJE_PREKO_42_DANA.number_of_hours)
 result = 0
 if result_qty &gt; 0.0:
-    if inputs.POS_PUNA:
-        # posljednja puna plata
-        pos_puna = inputs.POS_PUNA.amount
+    if inputs.POS_PLATA_SAT:
+        # posljednja puna plata satnica
+        pos_puna_bod = inputs.POS_PLATA_SAT.amount
     else:
-        pos_puna = None
-    pos_puna_bod =  pos_puna / (worked_days.FWORK100 and worked_days.FWORK100.number_of_hours)
+        pos_puna_bod = None
     result = pos_puna_bod * 0.8
     result = round(result, zaok)
         </field>
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
+    <record id="hr_rule_bol_preko_pos_plata_sat" model="hr.rule.input">
+            <field name="code">POS_PLATA_SAT</field>
+            <field name="name">Posljednja puna plata satnica</field>
+            <field name="input_id" ref="hr_salary_rule_bolov_preko"/>
     </record>
 
     <record id="hr_salary_rule_nep_ods" model="hr.salary.rule">
@@ -462,6 +506,7 @@ if stimulacija != 0:
     neto_bez_stim_prije += result_rules.DPRAZ and round(result_rules.DPRAZ.amount * result_rules.DPRAZ.quantity, zaoku)
     neto_bez_stim_prije += result_rules.VPRAZ and round(round(result_rules.VPRAZ.amount, zaok) * result_rules.VPRAZ.quantity, zaoku)
     neto_bez_stim_prije += result_rules.R_DPRAZ and round(result_rules.R_DPRAZ.amount * result_rules.R_DPRAZ.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.R_DPRAZ_N and round(result_rules.R_DPRAZ_N.amount * result_rules.R_DPRAZ_N.quantity, zaoku)
     neto_bez_stim_prije += result_rules.GODIS and round(result_rules.GODIS.amount * result_rules.GODIS.quantity, zaoku)
     neto_bez_stim_prije += result_rules.BOLOV and round(result_rules.BOLOV.amount * result_rules.BOLOV.quantity, zaoku)
     neto_bez_stim_prije += result_rules.BOLOV_POV and round(result_rules.BOLOV_POV.amount * result_rules.BOLOV_POV.quantity, zaoku)
@@ -517,6 +562,7 @@ if stimulacija != 0:
     neto_bez_stim_prije += result_rules.DPRAZ and round(result_rules.DPRAZ.amount * result_rules.DPRAZ.quantity, zaoku)
     neto_bez_stim_prije += result_rules.VPRAZ and round(round(result_rules.VPRAZ.amount, zaok) * result_rules.VPRAZ.quantity, zaoku)
     neto_bez_stim_prije += result_rules.R_DPRAZ and round(result_rules.R_DPRAZ.amount * result_rules.R_DPRAZ.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.R_DPRAZ_N and round(result_rules.R_DPRAZ_N.amount * result_rules.R_DPRAZ_N.quantity, zaoku)
     neto_bez_stim_prije += result_rules.GODIS and round(result_rules.GODIS.amount * result_rules.GODIS.quantity, zaoku)
     neto_bez_stim_prije += result_rules.BOLOV and round(result_rules.BOLOV.amount * result_rules.BOLOV.quantity, zaoku)
     neto_bez_stim_prije += result_rules.BOLOV_POV and round(result_rules.BOLOV_POV.amount * result_rules.BOLOV_POV.quantity, zaoku)
@@ -570,6 +616,7 @@ if stimulacija != 0:
     neto_bez_stim_prije += result_rules.DPRAZ and round(result_rules.DPRAZ.amount * result_rules.DPRAZ.quantity, zaoku)
     neto_bez_stim_prije += result_rules.VPRAZ and round(round(result_rules.VPRAZ.amount, zaok) * result_rules.VPRAZ.quantity, zaoku)
     neto_bez_stim_prije += result_rules.R_DPRAZ and round(result_rules.R_DPRAZ.amount * result_rules.R_DPRAZ.quantity, zaoku)
+    neto_bez_stim_prije += result_rules.R_DPRAZ_N and round(result_rules.R_DPRAZ_N.amount * result_rules.R_DPRAZ_N.quantity, zaoku)
     neto_bez_stim_prije += result_rules.GODIS and round(result_rules.GODIS.amount * result_rules.GODIS.quantity, zaoku)
     neto_bez_stim_prije += result_rules.BOLOV and round(result_rules.BOLOV.amount * result_rules.BOLOV.quantity, zaoku)
     neto_bez_stim_prije += result_rules.BOLOV_POV and round(result_rules.BOLOV_POV.amount * result_rules.BOLOV_POV.quantity, zaoku)
@@ -624,6 +671,7 @@ neto += result_rules.NOCNI and round(result_rules.NOCNI.amount * result_rules.NO
 neto += result_rules.DPRAZ and round(result_rules.DPRAZ.amount * result_rules.DPRAZ.quantity, zaoku)
 neto += result_rules.VPRAZ and round(result_rules.VPRAZ.amount * result_rules.VPRAZ.quantity, zaoku)
 neto += result_rules.R_DPRAZ and round(result_rules.R_DPRAZ.amount * result_rules.R_DPRAZ.quantity, zaoku)
+neto += result_rules.R_DPRAZ_N and round(result_rules.R_DPRAZ_N.amount * result_rules.R_DPRAZ_N.quantity, zaoku)
 neto += result_rules.GODIS and round(result_rules.GODIS.amount * result_rules.GODIS.quantity, zaoku)
 neto += result_rules.BOLOV and round(result_rules.BOLOV.amount * result_rules.BOLOV.quantity, zaoku)
 neto += result_rules.BOLOV_POV and round(result_rules.BOLOV_POV.amount * result_rules.BOLOV_POV.quantity, zaoku)
@@ -668,6 +716,7 @@ neto += result_rules.NOCNI and round(result_rules.NOCNI.amount * result_rules.NO
 neto += result_rules.DPRAZ and round(result_rules.DPRAZ.amount * result_rules.DPRAZ.quantity, zaoku)
 neto += result_rules.VPRAZ and round(result_rules.VPRAZ.amount * result_rules.VPRAZ.quantity, zaoku)
 neto += result_rules.R_DPRAZ and round(result_rules.R_DPRAZ.amount * result_rules.R_DPRAZ.quantity, zaoku)
+neto += result_rules.R_DPRAZ_N and round(result_rules.R_DPRAZ_N.amount * result_rules.R_DPRAZ_N.quantity, zaoku)
 neto += result_rules.GODIS and round(result_rules.GODIS.amount * result_rules.GODIS.quantity, zaoku)
 neto += result_rules.BOLOV and round(result_rules.BOLOV.amount * result_rules.BOLOV.quantity, zaoku)
 neto += result_rules.BOLOV_POV and round(result_rules.BOLOV_POV.amount * result_rules.BOLOV_POV.quantity, zaoku)
@@ -766,6 +815,7 @@ result += result_rules.NOCNI and round(result_rules.NOCNI.amount * result_rules.
 result += result_rules.DPRAZ and round(result_rules.DPRAZ.amount * result_rules.DPRAZ.quantity * result_rules.DPRAZ.rate/100, zaoku)
 result += result_rules.VPRAZ and round(result_rules.VPRAZ.amount * result_rules.VPRAZ.quantity * result_rules.VPRAZ.rate/100, zaoku)
 result += result_rules.R_DPRAZ and round(result_rules.R_DPRAZ.amount * result_rules.R_DPRAZ.quantity * result_rules.R_DPRAZ.rate/100, zaoku)
+result += result_rules.R_DPRAZ_N and round(result_rules.R_DPRAZ_N.amount * result_rules.R_DPRAZ_N.quantity * result_rules.R_DPRAZ_N.rate/100, zaoku)
 result += result_rules.GODIS and round(result_rules.GODIS.amount * result_rules.GODIS.quantity * result_rules.GODIS.rate/100, zaoku)
 result += result_rules.BOLOV and round(result_rules.BOLOV.amount * result_rules.BOLOV.quantity * result_rules.BOLOV.rate/100, zaoku)
 result += result_rules.BOLOV_POV and round(result_rules.BOLOV_POV.amount * result_rules.BOLOV_POV.quantity * result_rules.BOLOV.rate/100, zaoku)

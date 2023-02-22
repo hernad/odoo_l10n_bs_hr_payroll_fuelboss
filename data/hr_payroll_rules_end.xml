@@ -121,6 +121,21 @@ result_qty += worked_days.REST and abs(worked_days.REST.number_of_hours)
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
     </record>
 
+    <record id="hr_salary_rule_sati_d" model="hr.salary.rule">
+        <field name="name">NETO SATI (d)</field>
+        <field name="sequence" eval="631" />
+        <field name="code">NETO_S</field>
+        <field name="category_id" ref="l10n_bs_hr_payroll_fuelboss.NETO_S" />
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+result = 0
+#result_rate = 100
+result_qty = worked_days.WORK100 and worked_days.WORK100.number_of_hours
+        </field>
+        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    </record>
+
     <record id="hr_salary_rule_ukupno" model="hr.salary.rule">
         <field name="name">== UKUPNO ZA ISPLATU ===</field>
         <field name="sequence" eval="640" />
@@ -147,6 +162,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
                    ref('hr_salary_rule_dpraz_f'),
                    ref('hr_salary_rule_vpraz_f'),
                    ref('hr_salary_rule_r_dpraz_f'),
+                   ref('hr_salary_rule_r_dpraz_n_f'),
                    ref('hr_salary_rule_godis_f'),
                    ref('hr_salary_rule_bolov_f'),
                    ref('hr_salary_rule_bolov_pov_f'),
@@ -156,6 +172,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
                    ref('hr_salary_rule_ceka_f'),
                    ref('hr_salary_rule_stim_f'),
                    ref('hr_salary_rule_stim_add'),
+                   ref('hr_salary_rule_kor_min_met'),
                    ref('hr_salary_rule_to'),
                    ref('hr_salary_rule_loan'),
                    ref('hr_salary_rule_neto'),
@@ -182,11 +199,11 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
                    ref('hr_salary_rule_dpraz'),
                    ref('hr_salary_rule_vpraz'),
                    ref('hr_salary_rule_r_dpraz'),
+                   ref('hr_salary_rule_r_dpraz_n'),
                    ref('hr_salary_rule_godis'),
                    ref('hr_salary_rule_bolov'),
                    ref('hr_salary_rule_bolov_pov'),
                    ref('hr_salary_rule_ceka'),
-                   ref('hr_salary_rule_kor_min_met'),
                    ref('hr_salary_rule_mr'),
                    ref('hr_salary_rule_nep_ods'),
                    ref('hr_salary_rule_rod_ods'),
@@ -194,6 +211,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
                    ref('hr_salary_rule_stim'),
                    ref('hr_salary_rule_stim_add'),
                    ref('hr_salary_rule_to_o'),
+                   ref('hr_salary_rule_kor_min_met'),
                    ref('hr_salary_rule_to'),
                    ref('hr_salary_rule_loan'),
                    ref('hr_salary_rule_neto'),
@@ -219,7 +237,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
                  ref('hr_salary_rule_dopr_pio_dnj'),
                  ref('hr_salary_rule_dopr_zdr_dnj'),
                  ref('hr_salary_rule_dopr_zap_dnj'),
-                 ref('hr_salary_rule_sati')])]"
+                 ref('hr_salary_rule_sati_d')])]"
             name="rule_ids"
         />
         <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
