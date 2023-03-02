@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-
+<!--
+  https://gist.github.com/CakJuice/7bfdee10024ef36c0fcbb1cc03aacbf7
+-->
+   
     <report
         id="report_fuelboss_pdf"
         model="payroll.fuelboss.wizard.pdf"
@@ -8,6 +11,7 @@
         report_type="qweb-pdf"
         name="l10n_bs_hr_payroll_fuelboss.payroll_fuelboss_pdf_report"
         file="payroll_fuelboss_pdf"
+        paperformat="employee_report_pdf"
     />
 
     <template id="payroll_fuelboss_pdf_report">
