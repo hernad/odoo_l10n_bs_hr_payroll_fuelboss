@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <menuitem id="payroll_reporting_fuelboss"
+              name="Reporting"
+              parent="payroll.payroll_menu_root"
+              groups="payroll.group_payroll_manager"/>
+
+    <menuitem id="payroll_fuelboss_reporting_sub"
+              name="PDF Report"
+              sequence="3"
+              action="action_payroll_fuelboss_pdf_report"
+              parent="payroll_reporting_fuelboss"/>
+</data>
+</odoo>

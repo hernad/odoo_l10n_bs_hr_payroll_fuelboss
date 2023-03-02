@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <report
+        id="report_fuelboss_pdf"
+        model="payroll.fuelboss.wizard.pdf"
+        string="PDF Report"
+        report_type="qweb-pdf"
+        name="l10n_bs_hr_payroll_fuelboss.payroll_fuelboss_pdf_report"
+        file="payroll_fuelboss_pdf"
+    />
+
+    <template id="payroll_fuelboss_pdf_report">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <h3>
+                        <center>Payroll Fuelboss Report test</center>
+                    </h3>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-6">
+                            Date from:
+                            <span t-esc="date_from" t-options='{"widget": "date","format": "dd.MM.yyyy"}'/>
+                        </div>
+                       <!--
+                        <div class="col-6">
+                            Employees:
+                            <span t-esc="employees_ids"/>
+                        </div>
+                        -->
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            Date to:
+                            <span t-esc="date_to" t-options='{"widget": "date","format": "dd.MM.yyyy"}' />
+                        </div>
+                    </div>
+                    <br/>
+
+                    <table class="table table-condensed table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Code</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="employee" >
+                                <tr>
+                                    <td>
+                                        <span t-esc="employee['name']"/>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <span t-esc="employee['code']"/>
+                                        </center>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>
