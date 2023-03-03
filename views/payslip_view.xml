@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_payslip_view_tree_attrib_fb" model="ir.ui.view">
+            <field name="name">hr.payslip.tree.inherit.attrib.fb</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="payroll.hr_payslip_view_tree"/>
+            <field name="arch" type="xml">
+                <field name="company_id" position="attributes"><attribute name="optional">hide</attribute></field>
+                <field name="activity_ids" position="attributes"><attribute name="optional">hide</attribute></field>
+            </field>
+    </record>
+
+    <record id="hr_payslip_view_tree_fb" model="ir.ui.view">
+            <field name="name">hr.payslip.tree.inherit.fb</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="payroll.hr_payslip_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="email" optional="hide" />
+                    <field name="mip_vrsta_isplate" optional="hide" />
+                </xpath>
+            </field>
+   </record>
+
+</odoo>
