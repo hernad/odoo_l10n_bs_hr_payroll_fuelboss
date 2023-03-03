@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+     <record id="mip1023_xml_report" model="ir.actions.report">
+        <field name="name">MIP1023</field>
+        <field name="model">payroll.mip1023.wizard</field>
+        <field name="report_type">qweb-xml</field>
+        <field name="report_name">l10n_bs_hr_payroll_fuelboss.mip1023_xml_template</field>
+        <field name="report_file">mip1023</field>
+
+        <!--
+        <field name="binding_model_id" ref="hr.employee" />
+        <field name="binding_type">report</field>
+
+        <field name="report_file">mip_1023</field>
+
+        In case of demo data next definition will not work. So it just example
+        how it should look. If report is a part of demo data you will need
+        add file to report instance via `post_install_hook`
+        
+        <field name="xsd_schema" type="base64" file="report_xml/demo/demo_report.xsd" />
+        -->
+    </record>
+
+    <template id="mip1023_xml_template">
+        <root>
+            <emp t-foreach="docs" t-as="doc" >
+                <name t-esc="doc['name']" />
+                <code t-esc="doc['code']" />
+            </emp>
+        </root>
+    </template>
+
+</odoo>

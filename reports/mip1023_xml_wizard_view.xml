@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+    <record model="ir.ui.view" id="mip1023_xml_wizard_form_view">
+        <field name="name">mip1023_xml_form_view</field>
+        <field name="model">payroll.mip1023.wizard</field>
+        <field name="arch" type="xml">
+            <form string="MIP 1023 XML">
+                <group>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <group>
+                        <field name="employee_ids" widget="many2many_tags"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Generiši" name="action_generate_xml" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mip1023_xml" model="ir.actions.act_window">
+        <field name="name">MIP 1023 XML</field>
+        <field name="res_model">payroll.mip1023.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    
+  <!--  
+    <record id="action_payroll_fuelboss_xlsx_report" model="ir.actions.act_window">
+        <field name="name">XLSX Report</field>
+        <field name="res_model">report.payroll.fuelboss.xlsx</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+  -->
+
+
+
+</odoo>

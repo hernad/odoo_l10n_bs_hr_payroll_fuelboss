@@ -8,8 +8,14 @@
 
     <menuitem id="payroll_fuelboss_reporting_sub"
               name="PDF Report"
-              sequence="3"
+              sequence="10"
               action="action_payroll_fuelboss_pdf_report"
               parent="payroll_reporting_fuelboss"/>
+
+    <menuitem id="payroll_mip1023_xml"
+              name="MIP 1023 XML"
+              sequence="20"
+              action="action_mip1023_xml"
+              parent="payroll_reporting_fuelboss"/>          
 </data>
 </odoo>

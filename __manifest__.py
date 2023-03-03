@@ -31,6 +31,8 @@
         "reports/employee_report_pdf_wizard_view.xml",
         "reports/employee_report_pdf.xml",
         "reports/employee_xlsx_report.xml",
+        "reports/mip1023_xml_wizard_view.xml",
+        "reports/mip1023_xml.xml",
         "views/menus.xml"
     ],
     'installable': True,

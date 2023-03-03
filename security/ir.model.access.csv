@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_payroll_fuelboss_wizard_pdf,payroll.fuelboss.wizard.pdf,model_payroll_fuelboss_wizard_pdf,payroll.group_payroll_manager,1,1,1,1
+access_payroll_mip1023_wizard,payroll.mip1023.wizard,model_payroll_mip1023_wizard,payroll.group_payroll_manager,1,1,1,1
