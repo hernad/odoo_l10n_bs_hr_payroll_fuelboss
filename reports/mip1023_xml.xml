@@ -22,13 +22,71 @@
         -->
     </record>
 
-    <template id="mip1023_xml_template">
-        <root>
-            <emp t-foreach="docs" t-as="doc" >
-                <name t-esc="doc['name']" />
-                <code t-esc="doc['code']" />
-            </emp>
-        </root>
-    </template>
-
+<template id="mip1023_xml_template">
+<PaketniUvozObrazaca xmlns="urn:PaketniUvozObrazaca_V1_0.xsd">
+<PodaciOPoslodavcu>
+<JIBPoslodavca t-esc="company_id"></JIBPoslodavca>
+<NazivPoslodavca t-esc="company_name"></NazivPoslodavca>
+<BrojZahtjeva t-esc="broj_zahtjeva"></BrojZahtjeva>
+<DatumPodnosenja t-esc="datum_podnosenja"></DatumPodnosenja>
+</PodaciOPoslodavcu>
+<Obrazac1023>
+<Dio1>
+<JibJmb t-esc="company_id"></JibJmb>
+<Naziv t-esc="company_name"></Naziv>    
+<DatumUpisa t-esc="datum_upisa"></DatumUpisa>
+<BrojUposlenih t-esc="broj_uposlenih"></BrojUposlenih>
+<PeriodOd t-esc="period_od"></PeriodOd>
+<PeriodDo t-esc="period_do"></PeriodDo>
+<SifraDjelatnosti t-esc="sifra_djelatnosti"></SifraDjelatnosti>
+</Dio1>
+<Dio2>
+<PodaciOPrihodima t-foreach="docs" t-as="o">
+<VrstaIsplate t-esc="o['vrsta_isplate']"></VrstaIsplate>
+<Jmb t-esc="o['jmb']"></Jmb>
+<ImePrezime t-esc="o['ime_prezime']"></ImePrezime>
+<DatumIsplate t-esc="o['datum_isplate']"></DatumIsplate>
+<RadniSati t-esc="o['radni_sati']"></RadniSati>
+<RadniSatiBolovanje t-esc="o['radni_sati_bolovanje']"></RadniSatiBolovanje>
+<BrutoPlaca t-esc="o['bruto_placa']"></BrutoPlaca>
+<KoristiIDrugiOporeziviPrihodi t-esc="o['koristi_i_drugi_oporezivi_prihodi']"></KoristiIDrugiOporeziviPrihodi>
+<UkupanPrihod t-esc="o['ukupan_prihod']"></UkupanPrihod>
+<IznosPIO t-esc="o['iznos_pio']"></IznosPIO>
+<IznosZO t-esc="o['iznos_zo']"></IznosZO>
+<IznosNezaposlenost t-esc="o['iznos_nezaposlenost']"></IznosNezaposlenost>
+<Doprinosi t-esc="o['doprinosi']"></Doprinosi>
+<PrihodUmanjenZaDoprinose t-esc="o['prihod_umanjen_za_doprinose']"></PrihodUmanjenZaDoprinose>
+<FaktorLicnogOdbitka t-esc="o['koef_lo']"></FaktorLicnogOdbitka>
+<IznosLicnogOdbitka t-esc="o['iznos_lo']"></IznosLicnogOdbitka>
+<OsnovicaPoreza t-esc="o['osnovica_poreza']"></OsnovicaPoreza>
+<IznosPoreza t-esc="o['iznos_porez']"></IznosPoreza>
+<RadniSatiUT t-esc="o['radni_sati_ut']"></RadniSatiUT>
+<StepenUvecanja t-esc="o['stepen_uvecanja']"></StepenUvecanja>
+<SifraRadnogMjestaUT t-esc="o['sifra_radnog_mjesta_ut']"></SifraRadnogMjestaUT>
+<DoprinosiPIOMIOzaUT t-esc="o['dopr_pio_mio_ut']"></DoprinosiPIOMIOzaUT>
+<BeneficiraniStaz t-esc="o['beneficirani_rad_staz']"></BeneficiraniStaz>
+<OpcinaPrebivalista t-esc="o['opcina_prebivalista']"></OpcinaPrebivalista>
+</PodaciOPrihodima>
+</Dio2>
+<Dio3>
+<PIO t-esc="pio"></PIO>
+<ZO t-esc="zdr"></ZO>
+<OsiguranjeOdNezaposlenosti t-esc="zap"></OsiguranjeOdNezaposlenosti>
+<DodatniDoprinosiZO t-esc="zdr_2"></DodatniDoprinosiZO>
+<Prihod t-esc="prihod"></Prihod>
+<Doprinosi t-esc="dopr"></Doprinosi>
+<LicniOdbici t-esc="lic_odb"></LicniOdbici>
+<Porez t-esc="por"></Porez>
+</Dio3>
+<Dio4IzjavaPoslodavca>
+<JibJmbPoslodavca t-esc="company_id"></JibJmbPoslodavca>
+<DatumUnosa t-esc="datum_unosa"></DatumUnosa>
+<NazivPoslodavca t-esc="company_name"></NazivPoslodavca>
+</Dio4IzjavaPoslodavca>
+<Dokument>
+<Operacija t-esc="operacija"></Operacija>
+</Dokument>
+</Obrazac1023>
+</PaketniUvozObrazaca>
+</template>
 </odoo>
