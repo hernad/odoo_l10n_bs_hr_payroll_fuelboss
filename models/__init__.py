@@ -6,3 +6,4 @@ from . import resource_resource
 from . import analytic_line
 from . import project_task
 from . import hr_payslip
+from . import res_company

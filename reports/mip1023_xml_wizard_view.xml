@@ -13,7 +13,11 @@
                         <field name="date_to"/>
                     </group>
                     <group>
+                        <field name="company_id" />
                         <field name="employee_ids" widget="many2many_tags"/>
+                        <field name="date_payment" />
+                        <field name="date_submit" />
+                        <field name="submit_no" />
                     </group>
                 </group>
                 <footer>

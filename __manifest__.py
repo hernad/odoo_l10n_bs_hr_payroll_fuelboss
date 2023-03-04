@@ -28,6 +28,7 @@
         "views/employee_tree_view.xml",
         "views/project_task_sihtarica_default.xml",
         "views/payslip_view.xml",
+        "views/company_work_code.xml",
         "reports/employee_report_pdf_paperformat.xml",
         "reports/employee_report_pdf_wizard_view.xml",
         "reports/employee_report_pdf.xml",
