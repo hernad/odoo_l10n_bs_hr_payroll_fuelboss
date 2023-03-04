@@ -97,7 +97,6 @@ class Mip1023Xml(models.AbstractModel):
         broj_zahtjeva = data['submit_no']
 
         datum_isplate = datetime.strptime(date_payment, date_format).date()
-
         datum_podnosenja = datetime.strptime(date_submit, date_format).date()
         datum_upisa = datum_podnosenja
         datum_unosa = datum_podnosenja

@@ -235,6 +235,12 @@ class HrPayslipFB(models.Model):
                         payslip.dopr_zdr += line.total
                     elif line.code == 'D_ZAP':
                         payslip.dopr_zap += line.total
+                    elif line.code == 'D_IZ_PIO':
+                        payslip.dopr_iz_pio += line.total
+                    elif line.code == 'D_IZ_ZDR':
+                        payslip.dopr_iz_zdr += line.total
+                    elif line.code == 'D_IZ_ZAP':
+                        payslip.dopr_iz_zap += line.total
 
             # detasirani ne ulaze u poreznu osnovicu
             payslip.porez_osn = payslip.bruto_osn - dopr_iz_bih - payslip.iznos_lo
