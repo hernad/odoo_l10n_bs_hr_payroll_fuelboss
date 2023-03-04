@@ -64,7 +64,7 @@ class PayrollMip1023Wizard(models.TransientModel):
                 'employee_ids': self.employee_ids.ids,
                 'model': self._name,
                 'ids': self.ids,
-                'docids': []
+                'docids': self.ids
                }
   
         return self.env.ref('l10n_bs_hr_payroll_fuelboss.mip1023_xml_report').report_action(self, data=data)
@@ -182,7 +182,7 @@ class Mip1023Xml(models.AbstractModel):
             'por': round(por, ZAOKRUZENJE),
             'operacija': operacija, 
             #'doc_model': data['model'],
-            #'doc_ids': data['ids'],
+            #'docids': data['ids'],
             'docs': docs,
         }
 
