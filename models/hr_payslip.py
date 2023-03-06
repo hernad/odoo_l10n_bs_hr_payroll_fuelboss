@@ -66,18 +66,18 @@ class HrPayslipFB(models.Model):
             # neto sati u BiH (nisu ukljuceni sati BOL_PREKO)
             bih_neto_s = False
             for line in payslip.line_ids:
-                if line.total > 0 or line.quantity > 0:
+                if line.total != 0 or line.quantity != 0:
                     if line.code == 'BOL_PREKO':
                         bol_preko_sati = True
                     elif line.code == 'ROD_ODS':
                         rod_ods_sati = True
-                # detasirani
-                if 'INO' in line.contract_id.struct_id.code:
-                    if line.code == 'NETO_S':
-                        detasirani_neto_s = True
-                else:
-                    if line.code == 'NETO_S':
-                        bih_neto_s = True
+                    # detasirani
+                    if 'INO' in line.contract_id.struct_id.code:
+                        if line.code == 'NETO_S':
+                            detasirani_neto_s = True
+                    else:
+                        if line.code == 'NETO_S':
+                            bih_neto_s = True
 
             if bih_neto_s:
                 if detasirani_neto_s:
