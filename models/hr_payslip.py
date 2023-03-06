@@ -36,10 +36,10 @@ class HrPayslipFB(models.Model):
     dopr_iz_pio = fields.Float(string="Doprinosi PIO IZ", compute="_compute_dopr_iz_pio", store=False)
     dopr_iz_zdr = fields.Float(string="Doprinosi ZDR IZ", compute="_compute_dopr_iz_zdr", store=False)
     dopr_iz_zap = fields.Float(string="Doprinosi ZAP IZ", compute="_compute_dopr_iz_zap", store=False)
-    
+
     porez_osn = fields.Float(string="Porezna osnovica", compute="_compute_porez_osn", store=False)
     koef_lo = fields.Float(string="Koef LO", compute="_compute_koef_lo", store=False)
-    iznos_lo = fields.Float(string="Koef LO", compute="_compute_iznos_lo", store=False)
+    iznos_lo = fields.Float(string="Iznos LO", compute="_compute_iznos_lo", store=False)
     porez = fields.Float(string="Porez", compute="_compute_porez", store=False)
 
     dopr_pio = fields.Float(string="Doprinos PIO", compute="_compute_dopr_pio", store=False)
@@ -182,6 +182,9 @@ class HrPayslipFB(models.Model):
             payslip.porez = 0
             payslip.porez_osn = 0
             dopr_iz_bih = 0
+            # ako ima vise ugovora, licni_odbitak se moze pojaviti vise puta
+            # samo jednom se uracunava u iznos licnog odbitka
+            lic_odb_potrosen = False
             for line in payslip.line_ids:
                 if line.total != 0 or line.quantity != 0:
                     if line.code == 'BOL_PREKO':
@@ -225,8 +228,10 @@ class HrPayslipFB(models.Model):
                     elif line.code == 'D_IZ':
                         dopr_iz_bih += line.total
                     elif line.code == 'LIC_ODB':
-                        payslip.iznos_lo += line.total
-                        payslip.koef_lo = line.rate / 100
+                        if not lic_odb_potrosen:
+                            payslip.iznos_lo += line.total
+                            payslip.koef_lo = line.rate / 100
+                            lic_odb_potrosen = True
                     elif line.code == 'POREZ':
                         payslip.porez += line.total
                     elif line.code == 'D_PIO':
@@ -246,6 +251,8 @@ class HrPayslipFB(models.Model):
             payslip.porez_osn = payslip.bruto_osn - dopr_iz_bih - payslip.iznos_lo
             if payslip.porez_osn < 0:
                 payslip.porez_osn = 0
+                # gleda se samo dio iznosa LO koji je 'potrosen'
+                # payslip.iznos_lo = payslip.bruto_osn - dopr_iz_bih
             # ali na kraju ulaze u ukupno bruto osnovicu
             payslip.bruto_osn += bruto_osn_det
 

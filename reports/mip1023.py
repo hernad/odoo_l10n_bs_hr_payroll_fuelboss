@@ -102,10 +102,10 @@ class Mip1023Xml(models.AbstractModel):
         datum_unosa = datum_podnosenja
 
         broj_uposlenih = 0
-        pio = 0
-        zdr = 0
-        zap = 0
-        zdr_2 = 0
+        pio_na = 0
+        zdr_na = 0
+        zap_na = 0
+        zdr_2_na = 0
         prihod = 0
         dopr = 0
         lic_odb = 0
@@ -116,8 +116,7 @@ class Mip1023Xml(models.AbstractModel):
         domain.append(('company_id', '=', company_id.id))
         domain.append(('date_from', '=', datetime.strptime(date_from, DATE_FORMAT).date()))
         domain.append(('date_to', '=', datetime.strptime(date_to, DATE_FORMAT).date()))
-        payslips = self.env['hr.payslip'].search(domain, order='name asc')
-
+        payslips = self.env['hr.payslip'].search(domain)
         for payslip in payslips:
             dopr_iz_svi = round(payslip.dopr_iz_pio + payslip.dopr_iz_zdr + payslip.dopr_iz_zap, ZAOKRUZENJE)
             if type(payslip.employee_id.address_home_id.city_id.code) is not str:
@@ -150,14 +149,15 @@ class Mip1023Xml(models.AbstractModel):
                 }
             
             broj_uposlenih += 1
-            pio += payslip.dopr_iz_pio
-            zdr += payslip.dopr_iz_zdr
-            zap += payslip.dopr_iz_zap
+            pio_na += payslip.dopr_pio - payslip.dopr_iz_pio
+            zdr_na += payslip.dopr_zdr - payslip.dopr_iz_zdr
+            zap_na += payslip.dopr_zap - payslip.dopr_iz_zap
             dopr += dopr_iz_svi
             lic_odb += payslip.iznos_lo
             por += payslip.porez
             prihod += payslip.bruto_osn
             docs.append(o)
+
 
         data = {
             'company_id': company_registry,
@@ -171,10 +171,10 @@ class Mip1023Xml(models.AbstractModel):
             'period_od': period_od,
             'period_do': period_do,
             'sifra_djelatnosti': sifra_djelatnosti,
-            'pio': round(pio, ZAOKRUZENJE),
-            'zdr': round(zdr, ZAOKRUZENJE),
-            'zap': round(zap, ZAOKRUZENJE),
-            'zdr_2': round(zdr_2, ZAOKRUZENJE),
+            'pio': round(pio_na, ZAOKRUZENJE),
+            'zdr': round(zdr_na, ZAOKRUZENJE),
+            'zap': round(zap_na, ZAOKRUZENJE),
+            'zdr_2': round(zdr_2_na, ZAOKRUZENJE),
             'prihod': round(prihod, ZAOKRUZENJE),
             'dopr': round(dopr, ZAOKRUZENJE),
             'lic_odb': round(lic_odb, ZAOKRUZENJE),
@@ -182,7 +182,7 @@ class Mip1023Xml(models.AbstractModel):
             'operacija': operacija, 
             #'doc_model': data['model'],
             #'docids': data['ids'],
-            'docs': docs,
+            'docs': sorted(docs, key=lambda item: item['jmb'])
         }
 
         return super(Mip1023Xml, self).generate_report(ir_report, docids, data)
