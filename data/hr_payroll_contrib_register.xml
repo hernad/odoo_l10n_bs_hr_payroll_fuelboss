@@ -5,78 +5,78 @@
     <record id="contrib_register_isp" model="hr.contribution.register">
         <field name="name">Isplata</field>
         <field name="partner_id" eval="False" />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="contrib_register_por" model="hr.contribution.register">
         <field name="name">Porez na dohodak FBiH</field>
         <field name="partner_id" eval="False" />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="contrib_register_pio" model="hr.contribution.register">
         <field name="name">Doprinos PIO FBiH</field>
         <field name="partner_id" eval="False" />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="contrib_register_zdr_f" model="hr.contribution.register">
         <field name="name">Doprinos zdravstvo FBiH 10.2%</field>
         <field name="partner_id" eval="False" />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="contrib_register_zdr_k1" model="hr.contribution.register">
         <field name="name">Doprinos zdravstvo KZE-DO 89.8%</field>
         <field name="partner_id" eval="False" />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="contrib_register_zdr_k2" model="hr.contribution.register">
         <field name="name">Doprinos zdravstvo KSA 89.8%</field>
         <field name="partner_id" eval="False" />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="contrib_register_zdr_k3" model="hr.contribution.register">
         <field name="name">Doprinos zdravstvo Tuzlanski kanton 89.8%</field>
         <field name="partner_id" eval="False" />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="contrib_register_zdr_k4" model="hr.contribution.register">
         <field name="name">Doprinos zdravstvo SBK 89.8%</field>
         <field name="partner_id" eval="False" />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="contrib_register_zap_f" model="hr.contribution.register">
         <field name="name">Doprinos zapošljavanje FBiH 30%</field>
         <field name="partner_id" eval="False" />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="contrib_register_zap_k1" model="hr.contribution.register">
         <field name="name">Doprinos zapošljavanje KZE-DO 70%</field>
         <field name="partner_id" eval="False" />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="contrib_register_zap_k2" model="hr.contribution.register">
         <field name="name">Doprinos zapošljavanje KSA 70%</field>
         <field name="partner_id" eval="False" />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="contrib_register_zap_k3" model="hr.contribution.register">
         <field name="name">Doprinos zapošljavanje Tuzlanski kanton 70%</field>
         <field name="partner_id" eval="False" />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="contrib_register_zap_k4" model="hr.contribution.register">
         <field name="name">Doprinos zapošljavanje SBK 70%</field>
         <field name="partner_id" eval="False" />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 </odoo>

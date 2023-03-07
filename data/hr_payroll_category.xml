@@ -5,157 +5,157 @@
     <record id="POREZ" model="hr.salary.rule.category">
         <field name="name">Porez na platu</field>
         <field name="code">POREZ</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="LIC_ODB" model="hr.salary.rule.category">
         <field name="name">Lični odbitak</field>
         <field name="code">LIC_ODB</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="NETO_SUB" model="hr.salary.rule.category">
         <field name="name">Neto primanja: analitika</field>
         <field name="code">NETO_SUB</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="NETO" model="hr.salary.rule.category">
         <field name="name">Neto primanja</field>
         <field name="code">NETO</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="NETO_POS" model="hr.salary.rule.category">
         <field name="name">Neto plata poslije poreza</field>
         <field name="code">NETO_POS</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="BRUTO_SUB" model="hr.salary.rule.category">
         <field name="name">Bruto primanja: analitika</field>
         <field name="code">BRUTO_SUB</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="BR_OSN" model="hr.salary.rule.category">
         <field name="name">Bruto osnovica</field>
         <field name="code">BR_OSN</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="BR_OSN_BP" model="hr.salary.rule.category">
         <field name="name">Bruto osnovica bolovanje preko 42d</field>
         <field name="code">BR_OSN_BP</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="D_IZ_BP" model="hr.salary.rule.category">
         <field name="name">Doprinosi IZ za bolovanje preko 42d</field>
         <field name="code">D_IZ_BP</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="BR_OSN_DET" model="hr.salary.rule.category">
         <field name="name">Bruto osnovica detašmani</field>
         <field name="code">BR_OSN_DET</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="BRUTO" model="hr.salary.rule.category">
         <field name="name">Bruto primanja</field>
         <field name="code">BRUTO</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="NAKN" model="hr.salary.rule.category">
         <field name="name">Naknade</field>
         <field name="code">NAKN</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="OBUST" model="hr.salary.rule.category">
         <field name="name">Obustave</field>
         <field name="code">OBUST</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="UKUPNO" model="hr.salary.rule.category">
         <field name="name">Ukupno</field>
         <field name="code">UKUPNO</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="D_IZ_SUB" model="hr.salary.rule.category">
       <field name="name">Doprinosi IZ plate: analitika</field>
       <field name="code">D_IZ_SUB</field>
-      <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+      <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="D_IZ" model="hr.salary.rule.category">
         <field name="name">Doprinosi IZ - na teret poslodavca</field>
         <field name="code">D_IZ</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="D_NA_SUB" model="hr.salary.rule.category">
         <field name="name">Doprinosi NA platu: analitika</field>
         <field name="code">D_NA_SUB</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="D_NA" model="hr.salary.rule.category">
         <field name="name">Doprinosi NA - na teret zaposlenog</field>
         <field name="code">D_NA</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="NETO_S" model="hr.salary.rule.category">
         <field name="name">Neto satnica</field>
         <field name="code">NETO_S</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="D_PIO" model="hr.salary.rule.category">
         <field name="name">Doprinos PIO (iz+na)</field>
         <field name="code">D_PIO</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="D_ZDR" model="hr.salary.rule.category">
         <field name="name">Doprinos za zdravstvo (iz+na)</field>
         <field name="code">D_ZDR</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="D_ZAP" model="hr.salary.rule.category">
         <field name="name">Doprinos za zapošljavanje (iz+na)</field>
         <field name="code">D_ZAP</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="D_ZDR_F" model="hr.salary.rule.category">
         <field name="name">Doprinos za zdravstvo FBiH (iz+na)</field>
         <field name="code">D_ZDR_F</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="D_ZDR_K" model="hr.salary.rule.category">
         <field name="name">Doprinos za zdravstvo kantoni (iz+na)</field>
         <field name="code">D_ZDR_K</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="D_ZAP_F" model="hr.salary.rule.category">
         <field name="name">Doprinos za zapošljavanje FBiH (iz+na)</field>
         <field name="code">D_ZAP_F</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="D_ZAP_K" model="hr.salary.rule.category">
         <field name="name">Doprinos za zapošljavanje kantoni (iz+na)</field>
         <field name="code">D_ZAP_K</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
 </odoo>

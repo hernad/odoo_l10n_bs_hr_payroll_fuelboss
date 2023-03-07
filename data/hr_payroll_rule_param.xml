@@ -8,7 +8,7 @@
         <field name="name">Zaokruženje</field>
         <field name="code">ZAOK</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_param_koef_zaok_2020" model="hr.rule.parameter.value">
         <field name="parameter_value">4</field>
@@ -20,7 +20,7 @@
         <field name="name">Zaokruženje ukupno</field>
         <field name="code">ZAOKU</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_param_koef_zaok_u_2020" model="hr.rule.parameter.value">
         <field name="parameter_value">2</field>
@@ -30,7 +30,7 @@
 
     <!-- Koeficijent bruto osnove FBiH -->
     <record id="rule_param_koef_bo" model="hr.rule.parameter">
-       <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+       <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
         <field name="name">Koef Bruto osnove</field>
         <field name="code">KOEF_BO</field>
         <field name="country_id" ref="base.ba"/>
@@ -46,7 +46,7 @@
         <field name="name">Minimalna neto plata FBiH</field>
         <field name="code">MIN_NETO_FBIH</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_param_min_neto_2022" model="hr.rule.parameter.value">
         <field name="parameter_value">628.88</field>
@@ -58,7 +58,7 @@
         <field name="name">Minimalna neto plata FBiH, bez porezne kartice</field>
         <field name="code">MIN_NETO_FBIH_BPK</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_param_min_neto_bpk_2022" model="hr.rule.parameter.value">
         <field name="parameter_value">662.22</field>
@@ -71,7 +71,7 @@
         <field name="name">Minimalna neto satnica FBiH</field>
         <field name="code">MNS_FBIH</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_param_min_neto_sat_2022" model="hr.rule.parameter.value">
         <field name="parameter_value">2.31</field>
@@ -83,7 +83,7 @@
         <field name="name">Minimalna neto plata Metalci FBiH</field>
         <field name="code">MIN_MET_NETO_FBIH</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_param_min_met_neto_2022" model="hr.rule.parameter.value">
         <field name="parameter_value">0.00</field>
@@ -97,7 +97,7 @@
         <field name="name">Min neto satnica granski ugovor metalci FBiH</field>
         <field name="code">MNS_MET_FBIH</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_param_min_neto_sat_met_2022" model="hr.rule.parameter.value">
         <field name="parameter_value">2.31</field>
@@ -110,7 +110,7 @@
         <field name="name">Prosječna neto plata FBiH</field>
         <field name="code">PROS_N_P_FBIH</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_param_koef_bo_2022_07" model="hr.rule.parameter.value">
         <field name="parameter_value">1110.00</field>
@@ -128,7 +128,7 @@
         <field name="name">Vrijednost boda</field>
         <field name="code">VRBOD</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_param_vrbod_2022_07" model="hr.rule.parameter.value">
         <field name="parameter_value">2.31</field>
@@ -140,7 +140,7 @@
         <field name="name">Topli obrok ukupno/danu</field>
         <field name="code">TO_DAN</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_param_to_dan_2022_01" model="hr.rule.parameter.value">
         <field name="parameter_value">13.00</field>
@@ -154,7 +154,7 @@
         <field name="code">D_IZ_PIO</field>
         <!-- Bosnia and Herzegovina -->
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_parameter_dopr_iz_pio_2020" model="hr.rule.parameter.value">
         <field name="parameter_value">17</field>
@@ -166,7 +166,7 @@
         <field name="name">Dopr.IZ ZDR</field>
         <field name="code">D_IZ_ZDR</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_parameter_dopr_iz_zdr_2020" model="hr.rule.parameter.value">
         <field name="parameter_value">12.5</field>
@@ -178,7 +178,7 @@
         <field name="name">Dopr.IZ zapošljavanje</field>
         <field name="code">D_IZ_ZAP</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_parameter_dopr_iz_zap_2020" model="hr.rule.parameter.value">
         <field name="parameter_value">1.5</field>
@@ -192,7 +192,7 @@
         <field name="code">D_NA_PIO</field>
         <!-- Bosnia and Herzegovina -->
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_parameter_dopr_na_pio_2020" model="hr.rule.parameter.value">
         <field name="parameter_value">6.0</field>
@@ -204,7 +204,7 @@
         <field name="name">Dopr.NA ZDR</field>
         <field name="code">D_NA_ZDR</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_parameter_dopr_na_zdr_2020" model="hr.rule.parameter.value">
         <field name="parameter_value">4.0</field>
@@ -216,7 +216,7 @@
         <field name="name">Dopr.NA zapošljavanje</field>
         <field name="code">D_NA_ZAP</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_parameter_dopr_na_zap_2020" model="hr.rule.parameter.value">
         <field name="parameter_value">0.5</field>
@@ -228,7 +228,7 @@
         <field name="name">Porez na platu</field>
         <field name="code">POREZ</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_parameter_porez_2020" model="hr.rule.parameter.value">
         <field name="parameter_value">10.0</field>
@@ -241,7 +241,7 @@
         <field name="name">Bruto osnova detaširani radnici Njemačka</field>
         <field name="code">BR_OSN_DNJ</field>
         <field name="country_id" ref="base.ba"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
     <record id="rule_param_koef_zaok_2022" model="hr.rule.parameter.value">
         <field name="parameter_value">1529.00</field>

@@ -15,7 +15,7 @@ result_rate = float(payslip.rule_parameter('D_IZ_PIO')) + float(payslip.rule_par
 result = categories.BR_OSN
 result = round(result, zaok)
     </field>
-    <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
 </record>
 
 <record id="hr_salary_rule_dopr_iz_pio" model="hr.salary.rule">
@@ -33,7 +33,7 @@ result_rate = float(payslip.rule_parameter('D_IZ_PIO'))
 result = categories.BR_OSN
 result = round(result, zaok)
     </field>
-    <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
 </record>
 
 <record id="hr_salary_rule_dopr_iz_zdr" model="hr.salary.rule">
@@ -51,7 +51,7 @@ result_rate = float(payslip.rule_parameter('D_IZ_ZDR'))
 result = categories.BR_OSN
 result = round(result, zaok)
     </field>
-    <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
 </record>
 
 <record id="hr_salary_rule_dopr_iz_zap" model="hr.salary.rule">
@@ -69,7 +69,7 @@ result_rate = float(payslip.rule_parameter('D_IZ_ZAP'))
 result = categories.BR_OSN
 result = round(result, zaok)
     </field>
-    <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+    <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
 </record>
 
 </odoo>

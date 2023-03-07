@@ -14,7 +14,7 @@ if result_rate == 0:
    result_qty = 0
 result = 300.00
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_bruto_osn_bp" model="hr.salary.rule">
@@ -35,7 +35,7 @@ if bol_preko &gt; 0.0:
     result_qty =  1
     result = bol_preko
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_d_iz_bp" model="hr.salary.rule">
@@ -56,7 +56,7 @@ if br_osn_bol_preko &gt; 0.0:
     result_qty =  1
     result = br_osn_bol_preko
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_porez" model="hr.salary.rule">
@@ -77,7 +77,7 @@ else:
     result = osnovica - lic_odb
 result = round(result, int(payslip.rule_parameter('ZAOK')))
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_neto_pos" model="hr.salary.rule">
@@ -91,7 +91,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
 result = categories.NETO - categories.POREZ
 result = round(result, int(payslip.rule_parameter('ZAOK')))
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_sati" model="hr.salary.rule">
@@ -118,7 +118,7 @@ result_qty += worked_days.GODISNJI_ODMOR and abs(worked_days.GODISNJI_ODMOR.numb
 result_qty += worked_days.NEPLACENO_ODSUSTVO and abs(worked_days.NEPLACENO_ODSUSTVO.number_of_hours)
 result_qty += worked_days.REST and abs(worked_days.REST.number_of_hours)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_sati_d" model="hr.salary.rule">
@@ -133,7 +133,7 @@ result = 0
 #result_rate = 100
 result_qty = worked_days.WORK100 and worked_days.WORK100.number_of_hours
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_ukupno" model="hr.salary.rule">
@@ -149,7 +149,7 @@ result_qty = worked_days.WORK100 and worked_days.WORK100.number_of_hours
 result = categories.NETO_POS + categories.NAKN + categories.OBUST
 result = round(result, int(payslip.rule_parameter('ZAOK')))
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
 
@@ -187,7 +187,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
                    ref('hr_salary_rule_sati')])]"
             name="rule_ids"
         />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="structure_fbih_met" model="hr.payroll.structure">
@@ -226,7 +226,7 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
                    ref('hr_salary_rule_sati')])]"
             name="rule_ids"
         />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="structure_dnj" model="hr.payroll.structure">
@@ -240,13 +240,13 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
                  ref('hr_salary_rule_sati_d')])]"
             name="rule_ids"
         />
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
 <!--
     <record id="dep_proizvodnja" model="hr.department">
         <field name="name">Proizvodnja</field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="job_brav_cjev_3" model="hr.job">
@@ -254,14 +254,14 @@ result = round(result, int(payslip.rule_parameter('ZAOK')))
         <field name="department_id" ref="dep_proizvodnja"/>
 
         <field name="contract_type_id" ref="hr.contract_type_permanent"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="job_varilac" model="hr.job">
         <field name="name">Varilac</field>
         <field name="department_id" ref="dep_proizvodnja"/>
         <field name="contract_type_id" ref="hr.contract_type_permanent"/>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 -->
 

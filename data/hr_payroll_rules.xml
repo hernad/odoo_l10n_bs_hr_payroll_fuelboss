@@ -18,7 +18,7 @@ result_qty = radni_sati
 result = contract.br_bod * float(payslip.rule_parameter('VRBOD'))
 result = round(result, int(payslip.rule_parameter('ZAOK')))
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_rr_f" model="hr.salary.rule">
@@ -70,7 +70,7 @@ if radni_sati == 0:
 else:  
   result = round(neto_prije * ucesce_sati / radni_sati, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_nr" model="hr.salary.rule">
@@ -90,7 +90,7 @@ result_qty = radni_sati
 result = contract.br_bod * float(payslip.rule_parameter('VRBOD')) * 1.3
 result = round(result, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
       <record id="hr_salary_rule_nr_f" model="hr.salary.rule">
@@ -111,7 +111,7 @@ result_qty = radni_sati
 bod_sat_fiksno = round(result_rules.REDRAD.amount, zaok)
 result = bod_sat_fiksno
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_dpraz" model="hr.salary.rule">
@@ -128,7 +128,7 @@ result_qty =  worked_days.DRZAVNI_PRAZNIK and abs(worked_days.DRZAVNI_PRAZNIK.nu
 result = contract.br_bod * float(payslip.rule_parameter('VRBOD'))
 result = round(result, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_dpraz_f" model="hr.salary.rule">
@@ -144,7 +144,7 @@ result_qty =  worked_days.DRZAVNI_PRAZNIK and abs(worked_days.DRZAVNI_PRAZNIK.nu
 bod_sat_fiksno = round(result_rules.REDRAD.amount, zaok)
 result = bod_sat_fiksno
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_vpraz" model="hr.salary.rule">
@@ -160,7 +160,7 @@ result_qty =  worked_days.VJERSKI_PRAZNIK and abs(worked_days.VJERSKI_PRAZNIK.nu
 result = contract.br_bod * float(payslip.rule_parameter('VRBOD'))
 result = round(result, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_vpraz_f" model="hr.salary.rule">
@@ -177,7 +177,7 @@ result_qty =  worked_days.VJERSKI_PRAZNIK and abs(worked_days.VJERSKI_PRAZNIK.nu
 bod_sat_fiksno = round(result_rules.REDRAD.amount, zaok)
 result = bod_sat_fiksno
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_r_dpraz" model="hr.salary.rule">
@@ -197,7 +197,7 @@ result_qty =  days_tsh_30_wf + days_tsh_31_w
 result = contract.br_bod * float(payslip.rule_parameter('VRBOD')) * 0.4
 result = round(result, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_r_dpraz_f" model="hr.salary.rule">
@@ -216,7 +216,7 @@ result_qty =  days_tsh_30_wf + days_tsh_31_w
 bod_sat_fiksno = round(result_rules.REDRAD.amount, zaok)
 result = bod_sat_fiksno * 0.4
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_r_dpraz_n" model="hr.salary.rule">
@@ -236,7 +236,7 @@ result_qty =  days_tsh_40_xf + days_tsh_41_x
 result = contract.br_bod * float(payslip.rule_parameter('VRBOD')) * 0.52
 result = round(result, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_r_dpraz_n_f" model="hr.salary.rule">
@@ -255,7 +255,7 @@ result_qty =  days_tsh_40_xf + days_tsh_41_x
 bod_sat_fiksno = round(result_rules.REDRAD.amount, zaok)
 result = bod_sat_fiksno * 0.52
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_godis" model="hr.salary.rule">
@@ -272,7 +272,7 @@ result_qty =  worked_days.GODISNJI_ODMOR and abs(worked_days.GODISNJI_ODMOR.numb
 result = contract.br_bod * float(payslip.rule_parameter('VRBOD'))
 result = round(result, zaok)
         </field>
-      <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+      <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_godis_f" model="hr.salary.rule">
@@ -288,7 +288,7 @@ bod_sat_fiksno = round(result_rules.REDRAD.amount, zaok)
 result_qty = worked_days.GODISNJI_ODMOR and abs(worked_days.GODISNJI_ODMOR.number_of_hours)
 result = bod_sat_fiksno
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
 
@@ -306,7 +306,7 @@ result_qty =  worked_days.BOLOVANJE and abs(worked_days.BOLOVANJE.number_of_hour
 result = contract.br_bod * float(payslip.rule_parameter('VRBOD')) * 0.9
 result = round(result, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_bolov_f" model="hr.salary.rule">
@@ -322,7 +322,7 @@ bod_sat_fiksno = round(result_rules.REDRAD.amount, zaok)
 result_qty = worked_days.BOLOVANJE and abs(worked_days.BOLOVANJE.number_of_hours)
 result = bod_sat_fiksno
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_bolov_pov" model="hr.salary.rule">
@@ -338,7 +338,7 @@ result_qty =  worked_days.POVREDA_NA_RADU and abs(worked_days.POVREDA_NA_RADU.nu
 result = contract.br_bod * float(payslip.rule_parameter('VRBOD'))
 result = round(result, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_bolov_pov_f" model="hr.salary.rule">
@@ -355,7 +355,7 @@ result_qty =  worked_days.POVREDA_NA_RADU and abs(worked_days.POVREDA_NA_RADU.nu
 bod_sat_fiksno = round(result_rules.REDRAD.amount, zaok)
 result = bod_sat_fiksno
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_bolov_preko" model="hr.salary.rule">
@@ -378,7 +378,7 @@ if result_qty &gt; 0.0:
     result = pos_puna_bod * 0.8
     result = round(result, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_rule_bol_preko_pos_plata_sat" model="hr.rule.input">
@@ -400,7 +400,7 @@ result_qty =  worked_days.NEPLACENO_ODSUSTVO and abs(worked_days.NEPLACENO_ODSUS
 result = contract.br_bod * float(payslip.rule_parameter('VRBOD')) * 0.0
 result = round(result, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_mr" model="hr.salary.rule">
@@ -422,7 +422,7 @@ result += result_rules.GODIS and round(result_rules.GODIS.amount * result_rules.
 #result += result_rules.BOLOV and round(result_rules.BOLOV.amount * result_rules.BOLOV.quantity, zaoku)
 result += result_rules.BOLOV_POV and round(result_rules.BOLOV_POV.amount * result_rules.BOLOV_POV.quantity, zaoku)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_ceka" model="hr.salary.rule">
@@ -438,7 +438,7 @@ result_qty =  worked_days.REST and abs(worked_days.REST.number_of_hours)
 min_met = float(payslip.rule_parameter('MNS_MET_FBIH'))
 result = round(min_met, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_ceka_f" model="hr.salary.rule">
@@ -459,7 +459,7 @@ result_qty =  worked_days.REST and abs(worked_days.REST.number_of_hours)
 min_met = float(payslip.rule_parameter('MNS_MET_FBIH'))
 result = round(min_met, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
 
@@ -480,7 +480,7 @@ if result &lt;= 0:
     result = 0
 result = round(result, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
 
@@ -535,7 +535,7 @@ if stimulacija != 0:
     result_qty = 1
     result = round(stim_prije, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
 
@@ -591,7 +591,7 @@ if stimulacija != 0:
     result_qty = 1
     result = round(stim_prije, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
 <record id="hr_salary_rule_stim_add" model="hr.salary.rule">
@@ -645,7 +645,7 @@ if stimulacija != 0:
     result_qty = 1
     result = round(stim_prije, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_rule_input_payroll_input_add" model="hr.rule.input">
@@ -698,7 +698,7 @@ if result == 0:
    result_qty = 0
 result = round(result, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
    <record id="hr_salary_rule_kor_min" model="hr.salary.rule">
@@ -738,7 +738,7 @@ if result == 0:
    result_qty = 0
 result = round(result, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
 
@@ -755,7 +755,7 @@ result_qty =  worked_days.RODITELJSKO_ODSUSTVO and abs(worked_days.RODITELJSKO_O
 result = contract.br_bod * float(payslip.rule_parameter('VRBOD')) * 0.0
 result = round(result, int(payslip.rule_parameter('ZAOK')))
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
 
@@ -774,7 +774,7 @@ result_qty =  worked_days.FOOD and worked_days.FOOD.number_of_days
 result = float(payslip.rule_parameter('PROS_N_P_FBIH')) * 1 / 100.00
 result = round(result, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_loan" model="hr.salary.rule">
@@ -791,7 +791,7 @@ if inputs.LOAN and abs(inputs.LOAN.amount) &gt; 0:
             </field>
             <field name="appears_on_payslip" eval="True"/>
             <field name="sequence" eval="60"/>
-            <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+            <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_input_loan" model="hr.rule.input">
@@ -828,7 +828,7 @@ result += result_rules.TO_O and round(result_rules.TO_O.amount * result_rules.TO
 result += result_rules.KOREK_MET and round(result_rules.KOREK_MET.amount * result_rules.KOREK_MET.quantity * result_rules.KOREK_MET.rate/100, zaoku) if result_rules.KOREK_MET else 0
 result += result_rules.KOREK and round(result_rules.KOREK.amount * result_rules.KOREK.quantity * result_rules.KOREK.rate/100, zaoku) if result_rules.KOREK else 0
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_bruto_osn" model="hr.salary.rule">
@@ -843,7 +843,7 @@ zaok = int(payslip.rule_parameter('ZAOK'))
 result_rate = float(payslip.rule_parameter('KOEF_BO'))
 result = round(result_rules.NETO.amount, zaok)
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
     <record id="hr_salary_rule_obust" model="hr.salary.rule">
@@ -856,7 +856,7 @@ result = round(result_rules.NETO.amount, zaok)
         <field name="amount_python_compute">
 result = 0
         </field>
-        <field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+        <field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
     </record>
 
 </odoo>

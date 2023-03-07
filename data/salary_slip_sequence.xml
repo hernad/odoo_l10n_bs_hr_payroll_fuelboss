@@ -6,7 +6,7 @@
             <field name="code">salary.slip</field>
             <field name="prefix">PL/</field>
             <field name="padding">6</field>
-			<field name="company_id" search="[('name','ilike','Fuelboss doo Zenica')]" model="res.company"/>
+			<field name="company_id" search="[('name','ilike','FUEL BOSS doo Zenica')]" model="res.company"/>
         </record>
     </data>
 </odoo>

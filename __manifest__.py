@@ -1,6 +1,6 @@
 {
-    'name': 'Payroll Fuelboss doo Zenica',
-    'version': '1.1',
+    'name': 'Payroll FUEL BOSS doo Zenica',
+    'version': '2.0',
     'author': "bring.out Sarajevo, BiH",
     'category': 'Human Resources/Payroll',
     'sequence': 190,
