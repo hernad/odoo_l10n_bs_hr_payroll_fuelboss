@@ -126,7 +126,7 @@ class Mip1023Xml(models.AbstractModel):
                 'jmb': payslip.employee_id.identification_id,
                 'ime_prezime': payslip.ime_prezime,
                 'datum_isplate': datum_isplate,
-                'radni_sati': payslip.neto_sati,
+                'radni_sati': round(payslip.neto_sati + payslip.bol_preko_sati, ZAOKRUZENJE),
                 'radni_sati_bolovanje': payslip.bol_preko_sati,
                 'bruto_placa': payslip.bruto_osn,
                 'koristi_i_drugi_oporezivi_prihodi': 0,
